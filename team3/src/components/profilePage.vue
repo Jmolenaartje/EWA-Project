@@ -52,22 +52,22 @@
                     </p>
                   </div>
                 </div>
+                <!-- Change account details buttons -->
+                <div class="row">
+                  <div class="col-12">
+                    <button class="btn btn-primary">Change Password</button>
+                    <button class="btn btn-primary">Change Email</button>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Create a change password button -->
-    <div class="row">
-      <div class="col-12">
-        <button class="btn btn-primary">Change Password</button>
-        <button class="btn btn-primary">Change Email</button>
-      </div>
-    </div>
-  </div>
 
-    <!-- Create another card allign to the right only with h1-->
+    <!-- Level overview Header-->
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -76,7 +76,7 @@
           </div>
         </div>
 
-        <!-- Create a table with the following columns:level id, level name, level score -->
+        <!-- Table with level overview -->
         <table class="table">
           <thead>
             <tr>
@@ -107,7 +107,6 @@
             </tr>
           </tbody>
         </table>
-
       </div>
     </div>
 
@@ -158,8 +157,8 @@ a:hover {
   padding: 2em;
 }
 
-.rowRight {
-  margin-left: 2em;
+.row {
+  margin-bottom: 1em;
 }
 
 @media (min-width: 768px) {
