@@ -64,6 +64,7 @@
 </template>
 
 <script>
+
 export default {
   name: "adminEditGame",
   data() {
@@ -106,6 +107,7 @@ export default {
         document.getElementById(id).style.backgroundColor = "#5dbea0";
       }
     },
+
   },
 
   watch: {
