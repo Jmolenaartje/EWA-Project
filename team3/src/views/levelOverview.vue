@@ -1,11 +1,11 @@
 <template>
   <div class="masthead bg-primary text-white text-center" id="divBox">
     <div class="container">
-      <div> level overzicht </div>
+
       <div>
-        <div class="row-level" id="level-1">
+        <div class="row-level"  @click="clickEvent" id="level-1">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel1.png">
-          <img class="levelLogoImages" id="counterImg" src="../assets/img/logoLevels/counterLevel.png">
+          <img class="levelLogoImages" id="counterImg"  @click="clickEvent" src="../assets/img/logoLevels/counterLevel.png">
           <div class="levelBox" @click="clickEvent"><p class="levelText">level 1</p></div>
 
         </div>
@@ -47,7 +47,7 @@ export default {
   name: "levelOverview",
   methods: {
     clickEvent() {
-      this.$router.push("/home");
+      this.$router.push("/levelOne");
     }
   }
 }
@@ -92,7 +92,7 @@ export default {
   font-weight: 700;
   font-size: 80px;
   align-content: center;
-  padding-right: 150px;
+  padding-bottom: 30px;
 }
 @media screen and (max-width: 500px) {
   .levelText{
@@ -107,11 +107,12 @@ export default {
   .levelBox{
     display: none;
   }
-  #divBox{
-    background-color: #fff!important;
-  }
+
   .levelLogoImages{
     display: none;
+  }
+  .levelNumImages{
+    float: none;
   }
 
 }
