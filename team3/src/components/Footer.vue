@@ -1,5 +1,5 @@
 <template>
-     <footer class="footer text-center">
+     <footer id="footer" class="footer text-center">
             <div class="container">
                 <div class="row">
                     <!-- Footer Location-->
@@ -40,5 +40,10 @@ export default {
 </script>
 
 <style>
+#footer{
+ background-color: white !important;
+  color: red;
+
+}
 
 </style>

@@ -10,6 +10,10 @@ import gameThreeSub from "@/views/Admin/subComponents/gameThreeSub";
 import gameFourSub from "@/views/Admin/subComponents/gameFourSub";
 import gameFiveSub from "@/views/Admin/subComponents/gameFiveSub";
 import gameSixSub from "@/views/Admin/subComponents/gameSixSub";
+import levelOne from "@/views/levelViews/levelOne";
+
+
+
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -25,6 +29,7 @@ const routes = [
         {path: "game-6", component: gameSixSub},
         {path: '/:pathMatch(.*)', redirect: '/admin/'},
     ]},
+    { path: "/levelOne", component: levelOne},
     { path: "/", redirect: "/home"},
 ];
 
