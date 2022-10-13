@@ -84,11 +84,18 @@ export default {
 #divBox{
   background-color: red!important;
 }
+@font-face {
+  font-family: Slikscreen !important;
+  src: url("../assets/font/Silkscreen/Silkscreen-Regular.ttf");
+}
+
+
 
 .levelText {
+  font-family: Slikscreen !important;
+  src: url("../assets/font/Silkscreen/Silkscreen-Regular.ttf");
   color: red;
-  position: center;
-  font-family: "cursive" !important;
+
   font-weight: 700;
   font-size: 80px;
   align-content: center;
@@ -97,6 +104,7 @@ export default {
 @media screen and (max-width: 500px) {
   .levelText{
     display: none;
+
   }
   .levelLogoImages{
     align: center;
