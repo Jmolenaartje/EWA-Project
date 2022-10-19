@@ -85,15 +85,17 @@ export default {
   background-color: red!important;
 }
 @font-face {
-  font-family: Slikscreen !important;
   src: url("../assets/font/Silkscreen/Silkscreen-Regular.ttf");
+  font-family: Slikscreen;
+
 }
 
 
 
 .levelText {
-  font-family: Slikscreen !important;
-  src: url("../assets/font/Silkscreen/Silkscreen-Regular.ttf");
+  font-family: Slikscreen,serif;
+  font-style: italic;
+
   color: red;
 
   font-weight: 700;
@@ -107,7 +109,7 @@ export default {
 
   }
   .levelLogoImages{
-    align: center;
+
     position: center;
     float: initial;
 
