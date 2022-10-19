@@ -27,7 +27,7 @@
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
+                    placeholder="Enter email/user name"
                   />
                   <label for="exampleInputEmail1">Password</label>
                   <input

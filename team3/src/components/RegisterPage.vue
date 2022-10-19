@@ -23,21 +23,21 @@
                     class="form-control"
                     v-model="email"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
+                    placeholder="user name"
                   />
                   <label for="exampleInputEmail1">First name</label>
                   <input
                     type="text"
                     class="form-control"
                     v-model="firstName"
-                    placeholder="phonenumber"
+                    placeholder="first name"
                   />
                   <label for="exampleInputEmail1">Last name</label>
                   <input
                     type="text"
                     class="form-control"
                     v-model="lastName"
-                    placeholder="phonenumber"
+                    placeholder="last name"
                   />
                   <label for="exampleInputEmail1">Password</label>
                   <input
