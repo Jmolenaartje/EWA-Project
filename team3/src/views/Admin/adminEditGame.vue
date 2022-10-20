@@ -1,9 +1,7 @@
 <template>
-  <header class="masthead bg-primary text-white text-center">
+  <div class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <div class="row">
-
-
 
         <div class="col-lg" @click="loadSubPage('game-1')">
           <div class="card" id="game-1">
@@ -60,7 +58,7 @@
 
 
       </div>
-  </header>
+  </div>
 </template>
 
 <script>
@@ -87,8 +85,9 @@ export default {
 
     getSubPage() {
       let urlParts = this.$route.fullPath.toString().split('/');
-      if (urlParts[(urlParts.length - 1)].match(/game-[1-6]/)) {
-        return urlParts[(urlParts.length - 1)];
+      console.log(urlParts)
+      if (urlParts[2].match(/game-[1-6]/)) {
+        return urlParts[2];
       } else {
         this.$router.push("/admin/game-1");
         return false;
@@ -103,6 +102,7 @@ export default {
       }
     },
     highlight(id) {
+      console.log(id)
       if (id != null) {
         document.getElementById(id).style.backgroundColor = "#5dbea0";
       }
@@ -113,10 +113,12 @@ export default {
   watch: {
     '$route'() {
       let sub = this.getSubPage();
+      console.log(sub)
       if (sub) {
         if (sub != this.subPage) {
           this.previousSubPage = this.subPage;
           this.subPage = sub;
+
           this.deHighlight(this.previousSubPage);
           this.highlight(this.subPage);
         }

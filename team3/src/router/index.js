@@ -10,6 +10,7 @@ import gameThreeSub from "@/views/Admin/subComponents/gameThreeSub";
 import gameFourSub from "@/views/Admin/subComponents/gameFourSub";
 import gameFiveSub from "@/views/Admin/subComponents/gameFiveSub";
 import gameSixSub from "@/views/Admin/subComponents/gameSixSub";
+import gameTwoSubSub from "@/views/Admin/subComponents/gameTwoSubSub";
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -17,13 +18,14 @@ const routes = [
     { path: "/level-overview", component: levelOverview},
     { path: "/admin", component: adminEditGame,
     children: [
-        {path: "game-1", component: gameOneSub, props:true},
-        {path: "game-2", component: gameTwoSub},
-        {path: "game-3", component: gameThreeSub},
-        {path: "game-4", component: gameFourSub},
-        {path: "game-5", component: gameFiveSub},
-        {path: "game-6", component: gameSixSub},
-        {path: '/:pathMatch(.*)', redirect: '/admin/'},
+        { path: "game-1", component: gameOneSub, props:true},
+        { path: "game-2", component: gameTwoSub,
+            children: [{path: ':id', component: gameTwoSubSub}]},
+        { path: "game-3", component: gameThreeSub},
+        { path: "game-4", component: gameFourSub},
+        { path: "game-5", component: gameFiveSub},
+        { path: "game-6", component: gameSixSub},
+        // {path: '/:pathMatch(.*)', redirect: '/admin/'},
     ]},
     { path: "/", redirect: "/home"},
 ];
