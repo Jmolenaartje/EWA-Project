@@ -5,6 +5,8 @@
       <option v-for="(quiz) in quizzes" :key="quiz.title" :value="quiz.title" >{{quiz.title}}</option>
     </select>
 
+    <router-view :selected-Quiz="selectedQuiz"> </router-view>
+
   </div>
 </template>
 
@@ -22,6 +24,8 @@ export default {
 
   created() {
     this.quizzes = this.createFakeQuizs();
+    this.selectedQuiz = this.quizzes[0];
+    this.$router.push("/admin/game-2/" + this.quizzes[0].title);
     console.log(this.quizzes);
   },
 
@@ -45,7 +49,9 @@ export default {
     },
 
     selectChange(event){
-      this.selectedQuiz = event.target.value;
+      this.selectedQuiz = this.getQuizWithTitle(event.target.value);
+      this.$router.push("/admin/game-2/" + this.selectedQuiz.title);
+      console.log(this.selectedQuiz)
     },
 
     getQuizWithTitle(title){
@@ -61,5 +67,10 @@ export default {
 </script>
 
 <style scoped>
+
+select {
+  width: 25em;
+}
+
 
 </style>
