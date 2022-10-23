@@ -55,9 +55,9 @@
                 <!-- Change account details buttons -->
                 <div class="row">
                   <div class="col-12">
-                    <button class="btn btn-primary">Change Password</button>
-                    <button class="btn btn-primary">Change Email</button>
-                    <button class="btn btn-primary">Change Bio</button>
+                    <button class="btn btn-primary"> <router-link to="changePassword">Change Password</router-link></button>
+                    <button class="btn btn-primary"> <router-link to="changeEmail">Change Email</router-link></button>
+                    <button class="btn btn-primary"> <router-link to="changeBio">Change Bio</router-link></button>
                   </div>
                 </div>
               </div>
