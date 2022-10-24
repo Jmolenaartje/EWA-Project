@@ -32,15 +32,15 @@ export default {
   methods: {
     createFakeQuizs() {
       let quiz1 = new Quiz("Rolstoel");
-      let question1 = new Question("Hoeveel wielen heeft een rolstoel?", "twee");
-      let question2 = new Question("Ut sem nulla pharetra diam sit amet?", "id diam");
-      let question3 = new Question("Vestibulum lectus mauris ultrices eros in cursus turpis?", "dolor sed");
+      let question1 = new Question("Hoeveel wielen heeft een rolstoel?", 2, 3);
+      let question2 = new Question("Ut sem nulla pharetra diam sit amet?", "id diam", 2);
+      let question3 = new Question("Vestibulum lectus mauris ultrices eros in cursus turpis?", "dolor sed", 5);
       quiz1.addQuestion(question1);
       quiz1.addQuestion(question2);
       quiz1.addQuestion(question3);
 
       let quiz2 = new Quiz("Blinden");
-      let question4 = new Question("Kan iemand die blind is zien?", "nee");
+      let question4 = new Question("Kan iemand die blind is zien?", "nee" ,2);
       quiz2.addQuestion(question4);
       quiz2.addQuestion(question2);
       quiz2.addQuestion(question3);

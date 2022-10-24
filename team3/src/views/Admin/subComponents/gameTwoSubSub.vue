@@ -1,11 +1,27 @@
 <template>
-  <h1>{{this.selectedQuiz.title}}</h1>
-  <div v-for="(question) in this.selectedQuiz.questions" :key="question.id" class="card">
+
+  <table class="table">
     <tr>
-      <td>{{question.question}}</td>
-      <td>{{question.answer}}</td>
+      <th>Quiz title</th>
+      <td> <input v-model="this.selectedQuiz.title"/> </td>
     </tr>
-  </div>
+
+  <tbody v-for="(question) in this.selectedQuiz.questions" :key="question.id" >
+    <tr>
+      <th>Question:</th>
+      <td><input v-model="question.question"/></td>
+    </tr>
+    <tr>
+      <th>Answer:</th>
+      <td><input v-model="question.answer"/></td>
+    </tr>
+      <tr>
+        <th>Score:</th>
+        <td><input type="number" v-model="question.score"/></td>
+      </tr>
+  </tbody>
+
+  </table>
 
 </template>
 
@@ -21,21 +37,9 @@ export default {
 </script>
 
 <style scoped>
-
-.card {
-  background: transparent;
-  margin: 1em;
+input {
+  width: 40em;
+  border: none;
+  background: none;
 }
-
-.card-body {
-  padding: 0.1em;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-}
-
-.card:hover {
-  background: #5dbea0;
-  cursor: pointer;
-}
-
 </style>

@@ -3,11 +3,13 @@ export class Question {
     static amountOfQuestions = 0;
     question = "";
     answer;
+    score;
 
-    constructor(question, answer) {
+    constructor(question, answer, score) {
         this.id = Question.amountOfQuestions;
         Question.amountOfQuestions++;
         this.question = question;
         this.answer = answer;
+        this.score = score;
     }
 }
