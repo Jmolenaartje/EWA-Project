@@ -20,14 +20,14 @@
               <div class="col-12 col-md-8">
                 <div class="row">
                   <div class="col-12">
-                    <h2>John Doe</h2>
+                    <input v-model="selectedUser" />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12">
                     <p>
                       <i class="fas fa-map-marker-alt"></i>
-                      Amsterdam, The Netherlands
+                      <input type="text" value="Amsterdam, The Netherlands" />
                     </p>
                   </div>
                 </div>
@@ -35,9 +35,7 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-envelope"></i>
-                      <a href="mailto:test@gmail.com">
-                        fkajldsjfkl@gmail.com
-                      </a>
+                      <input type="text" value="email@gmail.com" />
                     </p>
                   </div>
                 </div>
@@ -45,17 +43,13 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-phone"></i>
-                      <a href="tel:6234929">
-                        6234892349
-                      </a>
+                      <input type="text" value="0612345678" />
                     </p>
                   </div>
                 </div>
-                <!-- Change account details buttons -->
                 <div class="row">
                   <div class="col-12">
                     <button class="btn btn-primary">Change Password</button>
-                    <button class="btn btn-primary">Change Email</button>
                   </div>
                 </div>
               </div>
@@ -113,7 +107,16 @@
 
 <script>
 export default {
-  name: "profilePage"
+  name: "profilePage",
+
+  data(){
+    return {
+    selectedUser: this.$route.params.id
+    }
+  },
+
+  mounted() {
+  }
 }
 </script>
 
@@ -174,6 +177,13 @@ a:hover {
   .card {
     border-radius: 0.25rem;
   }
+}
+
+input {
+  width: 15em;
+  border: none;
+  background: none;
+  padding-left: 1em;
 }
 
 

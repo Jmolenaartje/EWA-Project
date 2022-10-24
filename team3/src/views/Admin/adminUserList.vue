@@ -1,9 +1,23 @@
 <template>
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-  <div v-for="(user) in this.users" :key="user.userName" class="card">
-    <div class="card-body">{{user.userName}}</div>
+      <h1>Users:</h1>
+      <div class="container">
+  <div v-for="(user) in this.users" :key="user.userName" class="card" @click="toEditUser($event)">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+    <img
+        src="https://www.w3schools.com/howto/img_avatar.png"
+        alt="Avatar"
+        class="avatar"
+    />
+        </div>
+    <div class="col">{{user.userName}}</div>
+      </div>
+    </div>
   </div>
+      </div>
     </div>
   </header>
 
@@ -23,15 +37,19 @@ export default {
 
   created() {
     console.log("FAKKAAA")
-    this.users[0] = new User("Jaap", 12343);
-    this.users[1] = new User("piet", "DAE132s!");
+    this.users[0] = new User("Jaap van Huts", 12343);
+    this.users[1] = new User("Piet de Hond", "DAE132s!");
+  },
+
+  methods: {
+
+    toEditUser(event){
+      this.$router.push("/admin-edit-user/" + event.target.innerHTML)
+    }
+
   }
 
 }
-
-
-
-
 
 </script>
 
@@ -39,8 +57,7 @@ export default {
 
 .card {
   background: transparent;
-  margin: 1em;
-  width: 50em;
+  margin: 0.2em;
 }
 
 .card-body {
@@ -53,23 +70,11 @@ export default {
   background: #5dbea0;
   cursor: pointer;
 }
-
-@media (min-width: 768px) {
-  .card {
-    border-radius: 0.25rem;
-  }
+.avatar {
+  width: 2em;
+  border-radius: 50%;
 }
 
-@media (min-width: 992px) {
-  .card {
-    border-radius: 0.25rem;
-  }
-}
 
-@media (min-width: 1200px) {
-  .card {
-    border-radius: 0.25rem;
-  }
-}
 
 </style>

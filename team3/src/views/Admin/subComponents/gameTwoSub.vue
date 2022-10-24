@@ -1,5 +1,4 @@
 <template>
-<h1>Game 2</h1>
   <div>
     <select @change="selectChange($event)">
       <option v-for="(quiz) in quizzes" :key="quiz.title" :value="quiz.title" >{{quiz.title}}</option>

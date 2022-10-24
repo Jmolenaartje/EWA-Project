@@ -12,8 +12,8 @@ import gameFiveSub from "@/views/Admin/subComponents/gameFiveSub";
 import gameSixSub from "@/views/Admin/subComponents/gameSixSub";
 import gameTwoSubSub from "@/views/Admin/subComponents/gameTwoSubSub";
 import adminUserList from "@/views/Admin/adminUserList";
-import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
 import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId";
+import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -21,7 +21,7 @@ const routes = [
     { path: "/level-overview", component: levelOverview},
     { path: "/admin-users", component: adminUserList},
     { path: "/admin-edit-user", component: adminEditProfilePage, children:[{
-        path: ":id", component: adminEditProfilePageWithId,
+            path: ':id', component: adminEditProfilePageWithId,
         }]},
     { path: "/admin", component: adminEditGame,
     children: [
