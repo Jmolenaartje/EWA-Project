@@ -3,7 +3,7 @@
   <table class="table">
     <tr>
       <th>Quiz title</th>
-      <td> <input v-model="this.selectedQuiz.title"/> </td>
+      <td> <input type="text" v-model="selectedQuizTitle"/> </td>
     </tr>
 
   <tbody v-for="(question) in this.selectedQuiz.questions" :key="question.id" >
@@ -30,8 +30,13 @@ export default {
   name: "gameTwoSubSub",
   props: ['selectedQuiz'],
 
+  data() {
+    return {
+      selectedQuizTitle: this.selectedQuiz.title,
+    }
+  },
+
   created() {
-    console.log(this.selectedQuiz)
   }
 }
 </script>

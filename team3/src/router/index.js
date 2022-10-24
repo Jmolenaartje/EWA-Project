@@ -11,11 +11,18 @@ import gameFourSub from "@/views/Admin/subComponents/gameFourSub";
 import gameFiveSub from "@/views/Admin/subComponents/gameFiveSub";
 import gameSixSub from "@/views/Admin/subComponents/gameSixSub";
 import gameTwoSubSub from "@/views/Admin/subComponents/gameTwoSubSub";
+import adminUserList from "@/views/Admin/adminUserList";
+import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
+import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId";
 
 const routes = [
     { path: "/home", component: Welcome },
     { path: "/profilePage", component: profilePage},
     { path: "/level-overview", component: levelOverview},
+    { path: "/admin-users", component: adminUserList},
+    { path: "/admin-edit-user", component: adminEditProfilePage, children:[{
+        path: ":id", component: adminEditProfilePageWithId,
+        }]},
     { path: "/admin", component: adminEditGame,
     children: [
         { path: "game-1", component: gameOneSub, props:true},
