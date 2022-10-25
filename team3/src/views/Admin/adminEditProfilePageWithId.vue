@@ -2,7 +2,7 @@
   <div class="container d-flex align-items-center flex-column">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center">Profile</h1>
+        <h1 class="text-center">Edit profile</h1>
       </div>
     </div>
     <div class="row">
