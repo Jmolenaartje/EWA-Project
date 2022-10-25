@@ -25,7 +25,7 @@ const routes = [
     { path: "/registerPage", component: RegisterPage},
     { path: "/profilePage", component: profilePage},
     { path: "/level-overview", component: levelOverview},
-<<<<<<< HEAD
+
     { path: "/admin", component: adminEditGame,
     children: [
         {path: "game-1", component: gameOneSub, props:true},
@@ -39,10 +39,6 @@ const routes = [
     { path: "/levelOne", component: levelOne},
     { path: "/", redirect: "/home"},
 ];
-=======
-   ];
->>>>>>> origin/dev
-
 export const router = createRouter({
     history: createWebHashHistory(),
     routes
