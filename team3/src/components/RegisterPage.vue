@@ -1,5 +1,5 @@
 <template>
-  <header class="content">
+  <header class="content masthead bg-primary">
     <div class="body text-center pb-5">
       <div class="container">
         <div class="row justify-content-center">
@@ -58,7 +58,7 @@
                   <!-- <button class="fas fa-chevron-right ms-1" @click="clickEvent" />
                 --></form>
               </div>
-              <router-link to="/">
+              <router-link to="/profilePage">
                 <div class="btn btn-secondary mt-1">
                   Create account<span class="fas fa-chevron-right ms-1"></span>
                 </div>

@@ -1,5 +1,5 @@
 <template>
-  <header class="content">
+  <header class="content masthead bg-primary">
     <div class="header border-0"></div>
     <div class="body text-center pb-5">
       <div class="container">
