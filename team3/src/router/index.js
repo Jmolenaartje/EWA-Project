@@ -17,6 +17,13 @@ import gameTwoSubSub from "@/views/Admin/subComponents/gameTwoSubSub";
 import adminUserList from "@/views/Admin/adminUserList";
 import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId";
 import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
+import Welcome from '@/components/Welcome.vue'
+import profilePage from "@/views/profilePage.vue";
+import levelOverview from "@/views/levelOverview";
+import levelOne from "@/views/levelViews/levelOne";
+
+
+
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -26,6 +33,7 @@ const routes = [
     { path: "/registerPage", component: RegisterPage},
     { path: "/profilePage", component: profilePage},
     { path: "/level-overview", component: levelOverview},
+    { path: "/levelOne", component: levelOne},
     { path: "/admin-users", component: adminUserList},
     { path: "/admin-edit-user", component: adminEditProfilePage, children:[{
             path: ':id', component: adminEditProfilePageWithId,
