@@ -17,9 +17,6 @@ import gameTwoSubSub from "@/views/Admin/subComponents/gameTwoSubSub";
 import adminUserList from "@/views/Admin/adminUserList";
 import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId";
 import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
-import Welcome from '@/components/Welcome.vue'
-import profilePage from "@/views/profilePage.vue";
-import levelOverview from "@/views/levelOverview";
 import levelOne from "@/views/levelViews/levelOne";
 
 
