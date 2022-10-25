@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <header class="content">
     <div class="header border-0"></div>
     <div class="body text-center pb-5">
       <div class="container">
@@ -72,7 +72,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
