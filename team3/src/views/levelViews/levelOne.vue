@@ -8,56 +8,60 @@
 
         <div class="col counterBox">
           <div class="row">
-            <div class="col" id="links"><P> min </P></div>
-            <P class="col"> blind <a> counter</a></P>
-            <div class="col" id="rechts"><p> plus </p></div>
-          </div>
-        </div>
-
-        <div class="col counterBox">
-          <div class="row">
-            <div class="col" id="links"><P> min </P></div>
-            <P class="col"> blind</P>
-            <div class="col" id="rechts"><p> plus </p></div>
+            <div class="col" id="links"><P @click="countMinus"> - </P></div>
+            <P class="col">Blindheid <a>{{ total1 }}</a></P>
+            <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
           </div>
         </div>
 
 
         <div class="col counterBox">
           <div class="row">
-            <div class="col" id="links"><P> min </P></div>
-            <P class="col"> blind</P>
-            <div class="col" id="rechts"><p> plus </p></div>
+            <div class="col" id="links"><P @click="countMinus"> - </P></div>
+            <P class="col"> Slechtziend <a>{{ total2 }}</a></P>
+            <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
           </div>
         </div>
+
+
+
+        <div class="col counterBox">
+          <div class="row">
+            <div class="col" id="links"><P @click="countMinus"> - </P></div>
+            <P class="col"> doof <a>{{ total3 }}</a></P>
+            <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
+          </div>
+        </div>
+
 
       </div>
       <div class="row">
 
         <div class="col counterBox">
           <div class="row">
-            <div class="col" id="links"><P @click="countMinus"> min </P></div>
-            <P class="col"> blind <a>{{ total }}</a></P>
-            <div class="col" id="rechts"><p @click="countPlus"> plus </p></div>
+            <div class="col" id="links"><P @click="countMinus"> - </P></div>
+            <P class="col">Amputatie  <a>{{ total4 }}</a></P>
+            <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
           </div>
         </div>
 
         <div class="col counterBox">
           <div class="row">
-            <div class="col" id="links"><P> min </P></div>
-            <P class="col"> blind</P>
-            <div class="col" id="rechts"><p> plus </p></div>
+            <div class="col" id="links"><P @click="countMinus"> - </P></div>
+            <P class="col">blind <a>{{ total5 }}</a></P>
+            <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
           </div>
         </div>
 
 
         <div class="col counterBox">
           <div class="row">
-            <div class="col" id="links"><P> min </P></div>
-            <P class="col"> blind</P>
-            <div class="col" id="rechts"><p> plus </p></div>
+            <div class="col" id="links"><P @click="countMinus"> - </P></div>
+            <P class="col"> Dwarslaesie <a>{{ total6 }}</a></P>
+            <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
           </div>
         </div>
+
 
       </div>
     </div>
@@ -70,7 +74,12 @@ export default {
 
   data() {
     return {
-      total: null,
+      total1: null,
+      total2: null,
+      total3: null,
+      total4: null,
+      total5: null,
+      total6: null,
       stopTimer: null,
     }
 
@@ -115,14 +124,14 @@ export default {
     countPlus() {
 
       if (this.stopTimer) {
-        this.total++;
+        this.total1++;
       }
     },
     countMinus() {
 
       if (this.stopTimer) {
-        if (this.total > 0) {
-          this.total--;
+        if (this.total1 > 0) {
+          this.total1--;
         }
       }
     },
@@ -138,7 +147,7 @@ export default {
 .counterBox {
 
   margin: 10px;
-  border-style: solid;
+
   height: 100px;
   width: 100px;
   background-color: red;
@@ -146,8 +155,8 @@ export default {
 }
 
 #links {
-  border-style: solid;
-  background-color: yellow;
+
+  background-color: #ee0000;
   height: 98px;
 
   max-width: 100px;
@@ -164,8 +173,8 @@ p {
 }
 
 #rechts {
-  border-style: solid;
-  background-color: black;
+
+  background-color: #ee0000;
   text-align: center;
   height: 98px;
   max-width: 100px;
@@ -174,7 +183,7 @@ p {
 }
 
 #ten-countdown {
-  border: 5px solid #ffffff;
+
   display: inline;
   padding: 5px;
   color: #ff0000;
@@ -182,6 +191,9 @@ p {
   font-size: 150px;
   font-weight: bold;
   text-decoration: none;
+}
+a{
+  padding-bottom: 20px;
 }
 
 
