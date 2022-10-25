@@ -36,8 +36,8 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-envelope"></i>
-                      <a href="mailto:test@gmail.com">
-                        fkajldsjfkl@gmail.com
+                      <a href="mailto:email@gmail.com">
+                        email@gmail.com
                       </a>
                     </p>
                   </div>
@@ -46,8 +46,8 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-phone"></i>
-                      <a href="tel:6234929">
-                        6234892349
+                      <a href="tel:0612345678">
+                        0612345678
                       </a>
                     </p>
                   </div>
