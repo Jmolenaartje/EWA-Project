@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-
 import Welcome from '@/components/Welcome.vue'
 import profilePage from "@/views/profilePage.vue";
 import levelOverview from "@/views/levelOverview";
@@ -19,6 +18,9 @@ import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId
 import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
 import levelOne from "@/views/levelViews/levelOne";
 import levelTwo from "@/views/levelViews/levelTwo";
+
+
+
 
 const routes = [
     { path: "/home", component: Welcome },
