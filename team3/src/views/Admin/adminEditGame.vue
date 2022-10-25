@@ -75,6 +75,7 @@ export default {
   mounted() {
     this.subPage = this.getSubPage();
     this.highlight(this.subPage);
+    console.log(this.subPage)
   },
 
 
@@ -86,12 +87,12 @@ export default {
     getSubPage() {
       let urlParts = this.$route.fullPath.toString().split('/');
       console.log(urlParts)
-      if (urlParts[2].match(/game-[1-6]/)) {
-        return urlParts[2];
-      } else {
-        this.$router.push("/admin/game-1");
-        return false;
+      console.log(urlParts[2])
+      if (urlParts[2] != undefined && urlParts[2].match(/game-[1-6]/) ) {
+          return urlParts[2];
       }
+        this.$router.push("/admin/game-1");
+        return "game-1";
 
     },
 
@@ -101,6 +102,7 @@ export default {
         document.getElementById(id).style.backgroundColor = null;
       }
     },
+
     highlight(id) {
       console.log(id)
       if (id != null) {

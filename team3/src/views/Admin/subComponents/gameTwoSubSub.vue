@@ -12,8 +12,20 @@
       <td><input v-model="question.question"/></td>
     </tr>
     <tr>
-      <th>Answer:</th>
-      <td><input v-model="question.answer"/></td>
+      <th>Answer 1:</th>
+      <td><input v-model="question.answer1"/></td>
+    </tr>
+    <tr>
+      <th>Answer 2:</th>
+      <td><input v-model="question.answer2"/></td>
+    </tr>
+    <tr>
+      <th>Answer 3:</th>
+      <td><input v-model="question.answer3"/></td>
+    </tr>
+    <tr>
+      <th>Answer 4:</th>
+      <td><input v-model="question.answer4"/></td>
     </tr>
       <tr>
         <th>Score:</th>
@@ -32,12 +44,24 @@ export default {
 
   data() {
     return {
-      selectedQuizTitle: this.selectedQuiz.title,
+      selectedQuizTitle: "",
     }
   },
 
   created() {
+    let urlId = this.$route.params.id;
+    this.selectedQuizTitle = urlId;
+  },
+
+  watch: {
+    '$route'() {
+      let urlId = this.$route.params.id;
+
+      this.selectedQuizTitle = urlId;
+    }
   }
+
+
 }
 </script>
 

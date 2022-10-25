@@ -5,16 +5,17 @@
       <div class="container">
   <div v-for="(user) in this.users" :key="user.userName" class="card" @click="toEditUser($event)">
     <div class="card-body">
-      <div class="row">
-        <div class="col">
-    <img
-        src="https://www.w3schools.com/howto/img_avatar.png"
-        alt="Avatar"
-        class="avatar"
-    />
-        </div>
-    <div class="col">{{user.userName}}</div>
+
+      <img
+          src="https://www.w3schools.com/howto/img_avatar.png"
+          alt="Avatar"
+          class="avatar"
+      />
+
+      <div class="col">
+        <div class="userName">{{user.userName}}</div>
       </div>
+
     </div>
   </div>
       </div>
@@ -36,8 +37,7 @@ export default {
   },
 
   created() {
-    console.log("FAKKAAA")
-    this.users[0] = new User("Jaap van Huts", 12343);
+    this.users[0] = new User("Jaap Klok", 12343);
     this.users[1] = new User("Piet de Hond", "DAE132s!");
   },
 
@@ -73,6 +73,12 @@ export default {
 .avatar {
   width: 2em;
   border-radius: 50%;
+  float: left;
+}
+
+.userName {
+  float: left;
+  padding-left: 1em;
 }
 
 
