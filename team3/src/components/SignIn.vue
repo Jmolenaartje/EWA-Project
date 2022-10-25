@@ -39,14 +39,20 @@
                
                 </div>
               </div>
-              <div class="">
+              <div class="d-flex flex-column">
                 <router-link to="/">
                   <div class="btn btn-primary">
                     Log in<span class="fas fa-chevron-right ms-1"></span>
                   </div>
                 </router-link>
+                <router-link to="/registerPage">
+                  <div class="btn btn-primary mt-1">
+                    Register<span class="fas fa-chevron-right ms-1"></span>
+                  </div>
+                </router-link>
               </div>
             </div>
+               
           </div>
         </div>
       </div>
