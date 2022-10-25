@@ -3,7 +3,7 @@
     <div class="container">
 
       <div>
-        <div class="row-level"  @click="clickEvent" id="level-1">
+        <div class="row-level"  @click="clickEvent"  id="level-1">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel1.png">
           <img class="levelLogoImages" id="counterImg"  @click="clickEvent" src="../assets/img/logoLevels/counterLevel.png">
           <div class="levelBox" @click="clickEvent"><p class="levelText">level 1</p></div>
