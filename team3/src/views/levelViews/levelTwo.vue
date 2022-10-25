@@ -1,11 +1,11 @@
 <template>
-  <div class="d-flex justify-content-center masthead bg-primary">
+  <header class="d-flex justify-content-center masthead bg-primary">
 
     <div v-if="showScore">
       <b-card id="score" title="Results"> You Scored {{ score }} of {{ questions.length }}</b-card>
     </div>
 
-    <div class="questions" v-else>
+    <div class="questions col-lg-8 shadow-lg p-3 m-5 bg-white rounded" v-else>
       <span v-if="!startQuiz">
         <b-card src="../../assets/img/logoLevels/Q&a.png" img-alt="" title="Awareness Quizz" class="mb-2">
           <b-card-text id="titleText" class="d-flex justify-content-center">Welcome to the quiz, Here you will get
@@ -23,7 +23,7 @@
       <b-card-text>
         <span id="counter" class="d-flex justify-content-center">{{ countDown }}</span>
       </b-card-text>
-      <b-card-text class="d-flex justify-content-center"> {{ questions[currentQuestion].questionText }} </b-card-text>
+      <b-card-text class="d-flex justify-content-center row-cols-lg-5 p-1 m-1 bg-blue rounded"> {{ questions[currentQuestion].questionText }} </b-card-text>
       <div class="answer-section"> <br>
         <b-button id="clicking" :key="index" v-for="(option, index) in questions[currentQuestion].answerOptions"
                   @click="handleAnswerClick(option.isCorrect)" class="ans-option-btn d-flex justify-content-center bg-primary rounded"
@@ -32,7 +32,7 @@
   </b-card>
     </span>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
