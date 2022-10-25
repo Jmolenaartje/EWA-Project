@@ -153,6 +153,7 @@ a:hover {
   color: #4b68b8;
   text-decoration: none;
 }
+
 .card-body {
   padding: 2em;
 }
