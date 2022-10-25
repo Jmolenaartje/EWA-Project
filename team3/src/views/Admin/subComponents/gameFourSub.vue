@@ -1,5 +1,5 @@
 <template>
-<h1>Game 4</h1>
+<h1>Coming soon</h1>
 </template>
 
 <script>
