@@ -55,28 +55,45 @@
                 <!-- Change account details buttons -->
                 <div class="row">
                   <div class="col-12">
-                    <button class="btn btn-primary">Change Password</button>
-                    <button class="btn btn-primary">Change Email</button>
+                    <button class="btn btn-primary"> <router-link to="changePassword">Change Password</router-link></button>
+                    <button class="btn btn-primary"> <router-link to="changeEmail">Change Email</router-link></button>
+                    <button class="btn btn-primary"> <router-link to="changeBio">Change Bio</router-link></button>
                   </div>
                 </div>
               </div>
               </div>
             </div>
+
+          <div class="col-12">
+            <h2>Bio</h2>
           </div>
+          <!-- bio -->
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <!-- bio -->
+                  <div class="row">
+                    <div class="col-12">
+                      <p>Dit is een biografie van John Doe, ik vindt dit een geweldige website en ga hier
+                        graag naartoe voor quizes en andere games</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+  </div>
 
     <!-- Level overview Header-->
     <div class="row">
       <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <h1>Level overview</h1>
-          </div>
-        </div>
+        <h1>Level overview</h1>
 
-        <!-- Table with level overview -->
         <table class="table">
           <thead>
             <tr>
@@ -127,10 +144,12 @@ export default {
 }
 
 .card {
-  margin-top: 2em;
   margin-bottom: 2em;
   border-radius: 0;
   background-color: transparent;
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .card-body {
