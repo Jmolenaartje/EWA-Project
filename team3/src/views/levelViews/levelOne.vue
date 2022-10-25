@@ -18,9 +18,9 @@
 
         <div class="col counterBox">
           <div class="row">
-            <div class="col" id="links"><P @click="countMinus"> - </P></div>
+            <div class="col" id="links"><P @click="countMinus2"> - </P></div>
             <P class="col"> Slechtziend <a>{{ total2 }}</a></P>
-            <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
+            <div class="col" id="rechts"><p @click="countPlus2"> + </p></div>
           </div>
         </div>
 
@@ -128,11 +128,25 @@ export default {
         this.total1++;
       }
     },
+    countPlus2() {
+
+      if (this.stopTimer) {
+        this.total2++;
+      }
+    },
     countMinus() {
 
       if (this.stopTimer) {
         if (this.total1 > 0) {
           this.total1--;
+        }
+      }
+    },
+    countMinus2() {
+
+      if (this.stopTimer) {
+        if (this.total1 > 0) {
+          this.total2--;
         }
       }
     },
