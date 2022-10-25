@@ -26,7 +26,6 @@ const routes = [
     { path: "/registerPage", component: RegisterPage},
     { path: "/profilePage", component: profilePage},
     { path: "/level-overview", component: levelOverview},
-   ];
     { path: "/admin-users", component: adminUserList},
     { path: "/admin-edit-user", component: adminEditProfilePage, children:[{
             path: ':id', component: adminEditProfilePageWithId,
