@@ -17,6 +17,10 @@ import gameTwoSubSub from "@/views/Admin/subComponents/gameTwoSubSub";
 import adminUserList from "@/views/Admin/adminUserList";
 import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId";
 import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
+import levelOne from "@/views/levelViews/levelOne";
+
+
+
 import changeEmail from "@/views/editProfile/changeEmail";
 import changePassword from "@/views/editProfile/changePassword";
 import changeBio from "@/views/editProfile/changeBio";
@@ -28,6 +32,7 @@ const routes = [
     { path: "/signIn", component: SignIn},
     { path: "/registerPage", component: RegisterPage},
     { path: "/level-overview", component: levelOverview},
+    { path: "/levelOne", component: levelOne},
     { path: "/admin-users", component: adminUserList},
     { path: "/admin-edit-user", component: adminEditProfilePage, children:[{
             path: ':id', component: adminEditProfilePageWithId,
