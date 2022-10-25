@@ -17,12 +17,6 @@ import gameTwoSubSub from "@/views/Admin/subComponents/gameTwoSubSub";
 import adminUserList from "@/views/Admin/adminUserList";
 import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId";
 import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
-
-
-
-import changeEmail from "@/views/editProfile/changeEmail";
-import changePassword from "@/views/editProfile/changePassword";
-import changeBio from "@/views/editProfile/changeBio";
 import levelOne from "@/views/levelViews/levelOne";
 import levelTwo from "@/views/levelViews/levelTwo";
 
@@ -52,11 +46,7 @@ const routes = [
         { path: "game-4", component: gameFourSub},
         { path: "game-5", component: gameFiveSub},
         { path: "game-6", component: gameSixSub},
-        // {path: '/:pathMatch(.*)', redirect: '/admin/'},
     ]},
-    { path: "/changeEmail", component: changeEmail},
-    { path: "/changePassword", component: changePassword},
-    { path: "/changeBio", component: changeBio},
     { path: "/", redirect: "/home"},
 ];
 
