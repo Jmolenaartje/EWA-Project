@@ -3,16 +3,20 @@
     <div class="container">
 
       <div>
-        <div class="row-level"  @click="clickEvent"  id="level-1">
+        <div class="row-level" id="level-1">
+          <router-link to="/levelOne">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel1.png">
-          <img class="levelLogoImages" id="counterImg"  @click="clickEvent" src="../assets/img/logoLevels/counterLevel.png">
-          <div class="levelBox" @click="clickEvent"><p class="levelText">level 1</p></div>
+          <img class="levelLogoImages" id="counterImg"  src="../assets/img/logoLevels/counterLevel.png">
+          <div class="levelBox" ><p class="levelText">level 1</p></div>
+            </router-link>
 
         </div>
         <div class="row-level">
+          <router-link to="/levelTwo">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel2.png">
           <img class="levelLogoImages" id="safariImg"  src="../assets/img/logoLevels/Q&a.png">
           <div class="levelBox"><p class="levelText">level 2</p></div>
+          </router-link>
         </div>
         <div class="row-level">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel3.png">
@@ -47,7 +51,7 @@ export default {
   name: "levelOverview",
   methods: {
     clickEvent() {
-      this.$router.push("/levelOne");
+      // this.$router.push("/levelOne");
     }
   }
 }
