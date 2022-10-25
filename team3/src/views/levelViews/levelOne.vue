@@ -170,7 +170,7 @@ p {
   text-align: center;
   color: #ffffff;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 #rechts {
