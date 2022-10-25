@@ -120,7 +120,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Game Modal - Title-->
-                <h2 class="Game-modal-title text-secondary text-uppercase mb-0">Awareness Counting</h2>
+                <h2 class="Game-modal-title text-secondary text-uppercase mb-0">Awareness Counting!</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
