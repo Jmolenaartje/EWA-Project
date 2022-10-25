@@ -1,35 +1,112 @@
 <template>
-<div>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo facilisis sem, in dignissim nulla volutpat id. Sed lobortis libero ut urna volutpat iaculis. Vivamus eros orci, tempus et ultricies nec, laoreet laoreet lorem. Donec a nisi magna. Duis mollis odio ut ligula elementum molestie. Vivamus id elit condimentum nisi suscipit finibus. Cras sodales pharetra lacinia. Proin scelerisque non risus non tempor. Curabitur ultrices, elit lobortis tempus maximus, leo odio tincidunt neque, ut facilisis libero arcu a turpis. Donec mauris ligula, eleifend eu urna vitae, suscipit condimentum massa. Praesent dignissim fermentum dui non consequat. Mauris tempor, nunc a dapibus convallis, risus felis accumsan est, eget congue urna purus vel ante. Nunc imperdiet porttitor nunc, nec finibus dui gravida sed.
 
-  Donec eleifend nec odio vitae tempor. In porttitor auctor ipsum eget egestas. Cras ac urna vel mi elementum laoreet eget eget neque. Etiam dolor nibh, facilisis et metus vitae, scelerisque malesuada sem. Curabitur aliquam ligula sed convallis tristique. Aenean id finibus sapien. Pellentesque sagittis molestie erat nec volutpat. Aliquam odio tellus, ultrices nec massa sit amet, imperdiet dictum justo. Morbi eget consectetur nunc, sit amet rutrum enim. Ut ipsum lacus, viverra id venenatis id, vehicula non libero.
+  <div class="masthead bg-primary text-white text-center" id="divBox">
+    <div class="container">
+      <div class="row">
 
-  Mauris eget eleifend tortor. Donec ac laoreet magna. Quisque metus eros, laoreet eget faucibus ac, ultrices vel lectus. Phasellus eget sodales eros, at mollis massa. Duis porttitor diam orci, vitae condimentum turpis ultricies sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu finibus metus. Cras venenatis, lorem ut vestibulum condimentum, libero elit malesuada nisl, sit amet auctor nisl tellus quis lacus. Morbi malesuada augue pulvinar, rhoncus mi quis, faucibus magna. Suspendisse laoreet diam feugiat nulla mattis congue. Quisque ornare id tortor quis euismod. Vivamus ut blandit neque. Quisque vulputate, metus sit amet vulputate placerat, sapien nisl lobortis mauris, vitae vulputate dui sem a quam.
+        <div class="col counterBox">
+          <div class="row">
+            <div class="col" id="links"> <P> min </P></div>
+            <P class="col"> blind <a> counter</a> </P>
+            <div class="col" id="rechts"><p> plus </p></div>
+          </div>
+        </div>
 
-  In ullamcorper feugiat varius. Nunc iaculis luctus urna a suscipit. Donec id eros vitae turpis suscipit ullamcorper sed sed nunc. Integer bibendum cursus ipsum. Ut id enim volutpat, dictum felis dictum, luctus justo. Nulla varius sit amet nisi quis porta. Fusce quis sem euismod, varius ante sed, commodo metus. Sed rutrum condimentum dolor, eget cursus massa efficitur non. Curabitur sit amet sem non augue placerat posuere id at velit. Aenean dignissim erat sapien, in porta lorem commodo eget. Nunc vel nulla venenatis, vehicula leo ac, venenatis felis. Nam in dolor lorem.
+        <div class="col counterBox">
+          <div class="row">
+            <div class="col" id="links"> <P> min </P></div>
+            <P class="col"> blind</P>
+            <div class="col" id="rechts"><p> plus </p></div>
+          </div>
+        </div>
 
-  Nullam vitae velit vitae lacus ornare tincidunt at a ipsum. Etiam non malesuada tortor, a volutpat nibh. In vitae ex non lectus sagittis consequat. Duis vitae auctor nisl. Donec nibh turpis, luctus at nisi eget, laoreet ullamcorper dolor. Suspendisse convallis, lacus nec condimentum rhoncus, sem augue faucibus felis, non blandit lacus massa nec arcu. Suspendisse eu fermentum orci, eu hendrerit massa. Curabitur lorem nisi, dignissim sed tempor eget, finibus in tellus. Aliquam nibh odio, rutrum quis blandit vel, ultrices quis ex. Vivamus arcu ante, aliquet at massa in, rutrum luctus mauris. Quisque pulvinar ultrices mi, nec lacinia lorem ornare vel. Mauris ut cursus massa. Maecenas vel purus tristique, sodales lorem id, venenatis ex.
 
-  Pellentesque nulla nisi, pulvinar vitae risus at, aliquet posuere sapien. Vestibulum rutrum at arcu ut varius. Quisque rutrum finibus consectetur. Aenean pulvinar nisl in lorem lacinia mollis. Mauris at arcu eget eros iaculis tempor sit amet id purus. Morbi auctor sapien nec tincidunt ultrices. Nullam cursus vehicula tortor vel mollis. Donec pretium molestie ante eget porta. Sed posuere tortor magna, ut bibendum tellus finibus nec. Vivamus ut leo nec nulla pretium laoreet. Aliquam dictum quam vel nunc blandit, vitae molestie purus vulputate. Integer accumsan consectetur cursus.
+        <div class="col counterBox">
+          <div class="row">
+            <div class="col" id="links"> <P> min </P></div>
+            <P class="col"> blind</P>
+            <div class="col" id="rechts"><p> plus </p></div>
+          </div>
+        </div>
 
-  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut imperdiet diam justo, eu volutpat velit vehicula vel. Curabitur eu fermentum nisl. Maecenas neque ante, pellentesque vitae nibh vitae, placerat fringilla sapien. Quisque in tellus in turpis varius aliquet. Mauris vitae risus eu dui convallis egestas. Phasellus leo ipsum, volutpat nec aliquam ac, interdum nec sapien.
+      </div>
+      <div class="row">
 
-  Maecenas commodo fringilla condimentum. Donec vel dignissim ante. Morbi bibendum, nisi vel pulvinar cursus, velit sem molestie lectus, sit amet rutrum sapien enim id ex. Cras dolor tellus, viverra vitae mollis id, volutpat eget leo. Donec leo enim, lacinia tristique nunc in, malesuada dapibus risus. Integer et odio at tortor posuere ornare. Aenean non metus est. Nullam venenatis nisl eu metus volutpat dapibus. Pellentesque vitae efficitur dui, vel mattis massa. Nulla sed quam et diam consectetur placerat. Nam ut lobortis metus. Phasellus commodo rhoncus iaculis.
+        <div class="col counterBox">
+          <div class="row">
+            <div class="col" id="links"> <P> min </P></div>
+            <P class="col"> blind <a> counter</a> </P>
+            <div class="col" id="rechts"><p> plus </p></div>
+          </div>
+        </div>
 
-  Curabitur tincidunt turpis sed odio iaculis pharetra. Mauris et sapien vel ante lacinia rutrum eu quis eros. Suspendisse enim libero, volutpat lacinia lobortis ut, bibendum sit amet dolor. Proin eu consectetur odio, quis interdum nisi. Nam auctor nisl ut lacinia viverra. Donec dictum commodo consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis facilisis sit amet diam non lobortis. Donec facilisis dignissim porta. Maecenas pretium erat ut massa ultrices dapibus. Fusce lacinia quam et fringilla sagittis. Integer nulla nulla, lobortis sed lacus at, lacinia malesuada diam. Proin vel nibh purus. Morbi vehicula cursus orci, ut tristique est porttitor eget.
+        <div class="col counterBox">
+          <div class="row">
+            <div class="col" id="links"> <P> min </P></div>
+            <P class="col"> blind</P>
+            <div class="col" id="rechts"><p> plus </p></div>
+          </div>
+        </div>
 
-  Maecenas semper quam eget fringilla egestas. Nullam suscipit nunc nec vulputate consequat. Maecenas ex ipsum, dictum eget libero a, scelerisque suscipit diam. Curabitur tempor est a sapien ornare congue. Nam viverra, elit ac tincidunt suscipit, diam neque gravida ipsum, lacinia tincidunt urna dolor eu ligula. Nullam et placerat augue. In lorem leo, blandit a pharetra quis, finibus nec justo. Proin nec massa hendrerit, blandit ligula ut, rhoncus ipsum. Vivamus sodales elit eget pretium tincidunt. Aliquam commodo diam eget bibendum ultricies. Nulla feugiat tempus mauris, ut ornare enim ullamcorper non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Aenean tincidunt dictum eleifend. Proin quam eros, molestie vitae congue a, finibus a nulla. Vivamus elit velit, sagittis sed molestie at, aliquam quis neque.
 
-  Nam at consequat odio. Sed finibus posuere dolor sed dictum. Nullam feugiat elementum metus, quis tempus ante posuere vel. Donec elit augue, accumsan sed sem eget, faucibus faucibus.
-</div>
+        <div class="col counterBox">
+          <div class="row">
+            <div class="col" id="links"> <P> min </P></div>
+            <P class="col"> blind</P>
+            <div class="col" id="rechts"><p> plus </p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "levelOne"
+  name: "levelOne",
+
 }
 </script>
 
 <style scoped>
+.counterBox {
+
+  margin: 10px;
+  border-style: solid;
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  border-radius: 150px;
+}
+
+#links {
+  border-style: solid;
+  background-color: yellow;
+  height: 98px;
+
+  max-width: 100px;
+  border-radius: 150px 0 0 150px;
+
+}
+
+p {
+  /*margin: 20px;*/
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+#rechts {
+  border-style: solid;
+  background-color: black;
+  text-align: center;
+  height: 98px;
+  max-width: 100px;
+  border-radius: 0 150px 150px 0;
+
+}
+
 
 </style>
