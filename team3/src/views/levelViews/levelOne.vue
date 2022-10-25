@@ -2,14 +2,15 @@
 
   <div class="masthead bg-primary text-white text-center" id="divBox">
     <div id="ten-countdown"></div>
-    <button @click="countdown('ten-countdown', 0,5 )">start</button>
+
     <div class="container">
       <div class="row">
 
         <div class="col counterBox">
           <div class="row">
             <div class="col" id="links"><P @click="countMinus"> - </P></div>
-            <P class="col">Blindheid <a>{{ total1 }}</a></P>
+            <p class="col stylingP">Blindheid<a><br>
+                {{ total1 }}</a></p>
             <div class="col" id="rechts"><p @click="countPlus"> + </p></div>
           </div>
         </div>
@@ -62,8 +63,8 @@
           </div>
         </div>
 
-
       </div>
+      <button class="btn btn-primary" id="btn" @click="countdown('ten-countdown', 30,0 )">start</button>
     </div>
   </div>
 </template>
@@ -181,6 +182,12 @@ p {
   border-radius: 0 150px 150px 0;
 
 }
+#btn{
+  background-color: red;
+  width: 100px;
+  height: 50px;
+  font-size: 25px;
+}
 
 #ten-countdown {
 
@@ -194,6 +201,9 @@ p {
 }
 a{
   padding-bottom: 20px;
+}
+.stylingP{
+
 }
 
 
