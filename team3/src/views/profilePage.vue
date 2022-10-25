@@ -1,5 +1,5 @@
 <template>
-  <header class="masthead bg-primary text-white text-center" >
+  <header class="masthead bg-primary text-white text-center">
   <div class="container d-flex align-items-center flex-column">
     <div class="row">
       <div class="col-12">
@@ -154,14 +154,6 @@ export default {
 
 .card-body {
   padding: 2em;
-}
-header{
-  background-color: red !important;
-}
-button{
-  background-color: white;
-  color: red;
-  border-color: red;
 }
 
 h2 {

@@ -85,9 +85,7 @@ export default {
   float: bottom;
   border-radius: 10px;
 }
-#divBox{
-  background-color: red!important;
-}
+
 @font-face {
   src: url("../assets/font/Silkscreen/Silkscreen-Regular.ttf");
   font-family: Slikscreen;
