@@ -17,7 +17,7 @@
       <span v-else>
     <b-card title="Simple Quiz Application" class="mb-2 justify-content-center">
       <b-card-text id="questionAmount">
-        &emsp; Question No.{{ currentQuestion + 1 }} of {{ questions.length }}
+       Question No.{{ currentQuestion + 1 }} of {{ questions.length }}
      <b-progress id="progress" class="d-flex justify-content-center" variant="warning" :value="countDown"></b-progress><br><br>
     </b-card-text>
       <b-card-text>
@@ -25,8 +25,8 @@
       </b-card-text>
       <b-card-text class="d-flex justify-content-center"> {{ questions[currentQuestion].questionText }} </b-card-text>
       <div class="answer-section"> <br>
-        <b-button  :key="index" v-for="(option, index) in questions[currentQuestion].answerOptions"
-                  @click="handleAnswerClick(option.isCorrect)" class="ans-option-btn d-flex justify-content-center"
+        <b-button id="clicking" :key="index" v-for="(option, index) in questions[currentQuestion].answerOptions"
+                  @click="handleAnswerClick(option.isCorrect)" class="ans-option-btn d-flex justify-content-center bg-primary rounded"
                   variant="primary">{{ option.answerText }}</b-button>
       </div>
   </b-card>
@@ -158,7 +158,7 @@ export default {
 .ans-option-btn {
   min-width: 50%;
   font-size: 16px;
-  color: #ffffff;
+  color: black;
   align-items: center;
   cursor: pointer;
   margin-bottom: 5px;
