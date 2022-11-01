@@ -2,21 +2,23 @@ package com.example.server.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
 import java.util.UUID;
 
+@Entity
 public class User {
 
-//    id
-//name
-//password
-//email
-//phonenumber
-
-    //total score
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private UUID id;
+    @Column
     private String name;
+    @Column
     private String email;
+    @Column
     private String password;
+
 
     public User(@JsonProperty("id") UUID id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("password") String password) {
         this.id = id;
@@ -25,6 +27,9 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+
+    }
 
     public String getName() {
         return name;
@@ -60,11 +65,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "User{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", password='" + password + '\'' + '}';
     }
 }

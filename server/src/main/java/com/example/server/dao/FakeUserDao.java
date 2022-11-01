@@ -49,9 +49,9 @@ public class FakeUserDao implements UserDao {
     @Override
     public int updateUserById(UUID id, User user) {
 
-        return selectedUserById(id).map(user1 -> {
+        return selectedUserById(id).map(u -> {
 
-            int indexOfUserToDelete = database.indexOf(user1);
+            int indexOfUserToDelete = database.indexOf(u);
             if (indexOfUserToDelete >= 0) {
                 database.set(indexOfUserToDelete, new User(id,user.getName(), user.getEmail(), user.getPassword()));
                 return 1;

@@ -23,8 +23,9 @@ public class UserRestController {
     }
 
     @PostMapping
-    public void addUser(@RequestBody User user) {
+    public String addUser(@RequestBody User user) {
         userService.addUser(user);
+        return "saved...";
     }
     @GetMapping(path = "/all")
     public List<User> getAllUsers (){
