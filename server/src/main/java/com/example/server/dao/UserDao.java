@@ -16,11 +16,12 @@ public interface UserDao {
 
     List<User> selectAllUser();
 
-    public Optional<User>selectedUserById();
+    public Optional<User>selectedUserById(UUID id);
 
-    int deletePersonById(UUID id);
+    int deleteUserById(UUID id);
 
-    int updatePersonById(UUID id,User user);
+    int updateUserById(UUID id,User user);
+
 
 };
 

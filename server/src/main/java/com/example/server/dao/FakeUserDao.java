@@ -24,19 +24,41 @@ public class FakeUserDao implements UserDao {
         return database;
     }
 
+    /**
+     * this methode return the given id by search through the  user list with the stream function
+     *
+     * @param id
+     * @return id
+     */
     @Override
-    public Optional<User> selectedUserById() {
-        return Optional.empty();
+    public Optional<User> selectedUserById(UUID id) {
+        return database.stream()
+                .filter(user -> user.getId().equals(id)).findFirst();
     }
 
     @Override
-    public int deletePersonById(UUID id) {
-        return 0;
+    public int deleteUserById(UUID id) {
+        Optional<User> optionalUser = selectedUserById(id);
+        if (optionalUser.isEmpty()) {
+            return 0;
+        }
+        database.remove(optionalUser.get());
+        return 1;
     }
 
     @Override
-    public int updatePersonById(UUID id, User user) {
-        return 0;
+    public int updateUserById(UUID id, User user) {
+
+        return selectedUserById(id).map(user1 -> {
+
+            int indexOfUserToDelete = database.indexOf(user1);
+            if (indexOfUserToDelete >= 0) {
+                database.set(indexOfUserToDelete, new User(id,user.getName(), user.getEmail(), user.getPassword()));
+                return 1;
+            }
+            return 0;
+        }).orElse(0);
+
     }
 
 }
