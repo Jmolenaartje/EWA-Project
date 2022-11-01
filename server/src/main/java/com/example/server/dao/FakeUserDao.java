@@ -1,6 +1,8 @@
 package com.example.server.dao;
 
 import com.example.server.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,13 +10,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository("fakeDao")
+@Repository("FakeUserDao")
 public class FakeUserDao implements UserDao {
+
+    public FakeUserDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    private final JdbcTemplate jdbcTemplate;
 
     private static List<User> database = new ArrayList<>();
 
     @Override
     public int insertUser(UUID id, User user) {
+
         database.add(new User(id, user.getName(), user.getEmail(), user.getPassword()));
         return 0;
     }
