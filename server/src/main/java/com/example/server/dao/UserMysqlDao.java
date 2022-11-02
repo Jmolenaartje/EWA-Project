@@ -1,7 +1,9 @@
 package com.example.server.dao;
 
 import com.example.server.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,13 +14,13 @@ import java.util.UUID;
 public class UserMysqlDao implements UserDao{
 
     private final JdbcTemplate jdbcTemplate;
-
+@Autowired
     public UserMysqlDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public int insertUser(UUID id, User user) {
+    public int insertUser(int id, User user) {
         String sql= " INSERT INTO user (id, name, email, password)VALUES(? , ?, ?,?)";
 
         return jdbcTemplate.update(sql,id,user.getName(),user.getEmail(), user.getPassword());
@@ -26,21 +28,45 @@ public class UserMysqlDao implements UserDao{
 
     @Override
     public List<User> selectAllUser() {
-        return null;
+
+        String sql = "SELECT * FROM user";
+
+        return jdbcTemplate.query(sql,mapUser());
+    }
+    private RowMapper<User> mapUser() {
+        return (resultSet, i) -> {
+            String idStr = resultSet.getString("id");
+            String name = resultSet.getString("name");
+            String email = resultSet.getString("email");
+            String password = resultSet.getString("password");
+
+            return new User(
+                    Integer.parseInt(idStr),
+                    name,
+                    email,
+                    password
+            );
+        };
     }
 
     @Override
-    public Optional<User> selectedUserById(UUID id) {
+    public Optional<User> selectedUserById(int id) {
         return Optional.empty();
     }
 
     @Override
-    public int deleteUserById(UUID id) {
-        return 0;
+    public int deleteUserById(int id) {
+        String sql = "" +
+                "DELETE FROM user " +
+                "WHERE id = ?";
+        System.out.println(id);
+        System.out.println(jdbcTemplate.update(sql, id));
+        return jdbcTemplate.update(sql, id);
+
     }
 
     @Override
-    public int updateUserById(UUID id, User user) {
+    public int updateUserById(int id, User user) {
         return 0;
     }
 }

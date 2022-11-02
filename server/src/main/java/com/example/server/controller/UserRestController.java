@@ -33,16 +33,16 @@ public class UserRestController {
     }
 
     @GetMapping(path = "{id}")
-    public User getUserById(@PathVariable("id") UUID id){
+    public User getUserById(@PathVariable("id") int id){
 
         return userService.getUserById(id).orElseThrow(IllegalAccessError::new);
     }
 @DeleteMapping(path = "{id}")
-    public void deleteUser(@PathVariable("id") UUID id){
+    public void deleteUser(@PathVariable("id") int id){
         userService.deleteUser(id);
     }
 @PutMapping(path = "{id}")
-    public void updateUser(@PathVariable("id") UUID id, @RequestBody User userUpdate){
+    public void updateUser(@PathVariable("id") int id, @RequestBody User userUpdate){
         userService.updatePerson(id,userUpdate);
     }
 

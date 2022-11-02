@@ -22,7 +22,7 @@ public class FakeUserDao implements UserDao {
     private static List<User> database = new ArrayList<>();
 
     @Override
-    public int insertUser(UUID id, User user) {
+    public int insertUser(int id, User user) {
 
         database.add(new User(id, user.getName(), user.getEmail(), user.getPassword()));
         return 0;
@@ -40,13 +40,12 @@ public class FakeUserDao implements UserDao {
      * @return id
      */
     @Override
-    public Optional<User> selectedUserById(UUID id) {
-        return database.stream()
-                .filter(user -> user.getId().equals(id)).findFirst();
+    public Optional<User> selectedUserById(int id) {
+        return database.stream().filter(user -> user.getId() == id).findFirst();
     }
 
     @Override
-    public int deleteUserById(UUID id) {
+    public int deleteUserById(int id) {
         Optional<User> optionalUser = selectedUserById(id);
         if (optionalUser.isEmpty()) {
             return 0;
@@ -56,7 +55,7 @@ public class FakeUserDao implements UserDao {
     }
 
     @Override
-    public int updateUserById(UUID id, User user) {
+    public int updateUserById(int id, User user) {
 
         return selectedUserById(id).map(u -> {
 

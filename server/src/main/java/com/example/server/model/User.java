@@ -9,9 +9,9 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private int id;
     @Column
     private String name;
     @Column
@@ -20,7 +20,7 @@ public class User {
     private String password;
 
 
-    public User(@JsonProperty("id") UUID id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("password") String password) {
+    public User(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("email") String email, @JsonProperty("password") String password) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -39,11 +39,11 @@ public class User {
         this.name = name;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -15,7 +15,7 @@ public class UserService {
     private final UserDao userDao;
 
     @Autowired
-    public UserService(@Qualifier("FakeUserDao") UserDao userDao) {
+    public UserService(@Qualifier("UserMysqlDao") UserDao userDao) {
         this.userDao = userDao;
     }
 
@@ -26,13 +26,13 @@ public class UserService {
         return userDao.selectAllUser();
     }
 
-    public Optional<User> getUserById(UUID id){
+    public Optional<User> getUserById(int id){
         return userDao.selectedUserById(id);
     }
-    public int deleteUser(UUID id){
+    public int deleteUser(int id){
         return userDao.deleteUserById(id);
     }
-    public int updatePerson(UUID id,User newUser){
+    public int updatePerson(int id,User newUser){
         return userDao.updateUserById(id,newUser);
     }
 
