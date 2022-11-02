@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class UserService {
@@ -32,8 +31,11 @@ public class UserService {
     public int deleteUser(int id){
         return userDao.deleteUserById(id);
     }
-    public int updatePerson(int id,User newUser){
+    public int updateUser(int id, User newUser){
         return userDao.updateUserById(id,newUser);
+    }
+    public int updateUserName(int id, User newUser){
+        return userDao.updateUserName(id,newUser);
     }
 
 }

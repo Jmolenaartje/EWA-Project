@@ -69,4 +69,19 @@ public class FakeUserDao implements UserDao {
 
     }
 
+    @Override
+    public int updateUserName(int id, User user) {
+        return 0;
+    }
+
+    @Override
+    public int updateUserEmail(int id, User user) {
+        return 0;
+    }
+
+    @Override
+    public int updateUserPassword(int id, User user) {
+        return 0;
+    }
+
 }

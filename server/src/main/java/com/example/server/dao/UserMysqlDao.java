@@ -59,8 +59,7 @@ public class UserMysqlDao implements UserDao{
         String sql = "" +
                 "DELETE FROM user " +
                 "WHERE id = ?";
-        System.out.println(id);
-        System.out.println(jdbcTemplate.update(sql, id));
+
         return jdbcTemplate.update(sql, id);
 
     }
@@ -68,5 +67,35 @@ public class UserMysqlDao implements UserDao{
     @Override
     public int updateUserById(int id, User user) {
         return 0;
+    }
+
+    @Override
+    public int updateUserName(int id, User user) {
+        String sql = "" +
+                "UPDATE user " +
+                "SET name = ? " +
+                "WHERE id = ?";
+        return jdbcTemplate.update(sql, user.getName(), id);
+
+    }
+
+    @Override
+    public int updateUserEmail(int id, User user) {
+        String sql = "" +
+                "UPDATE user " +
+                "SET email = ? " +
+                "WHERE id = ?";
+        return jdbcTemplate.update(sql, user.getEmail(), id);
+
+    }
+
+    @Override
+    public int updateUserPassword(int id, User user) {
+        String sql = "" +
+                "UPDATE user " +
+                "SET password = ? " +
+                "WHERE id = ?";
+        return jdbcTemplate.update(sql, user.getPassword(), id);
+
     }
 }

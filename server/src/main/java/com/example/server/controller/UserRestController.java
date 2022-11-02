@@ -43,7 +43,12 @@ public class UserRestController {
     }
 @PutMapping(path = "{id}")
     public void updateUser(@PathVariable("id") int id, @RequestBody User userUpdate){
-        userService.updatePerson(id,userUpdate);
+        userService.updateUser(id,userUpdate);
+
+    }
+@PutMapping(path = "{id}/updateName")
+    public void updateUserName(@PathVariable("id") int id, @RequestBody User userUpdate){
+        userService.updateUserName(id,userUpdate);
     }
 
 

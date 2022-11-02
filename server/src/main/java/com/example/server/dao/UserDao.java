@@ -22,6 +22,9 @@ public interface UserDao {
     int deleteUserById(int id);
 
     int updateUserById(int id,User user);
+    int updateUserName(int id,User user);
+    int updateUserEmail(int id,User user);
+    int updateUserPassword(int id,User user);
 
 
 };
