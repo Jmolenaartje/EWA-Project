@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+
 
 @Repository("UserMysqlDao")
 public class UserMysqlDao implements UserDao{
@@ -20,10 +20,10 @@ public class UserMysqlDao implements UserDao{
     }
 
     @Override
-    public int insertUser(int id, User user) {
-        String sql= " INSERT INTO user (id, name, email, password)VALUES(? , ?, ?,?)";
+    public int insertUser( User user) {
+        String sql= " INSERT INTO user ( name, email, password)VALUES( ?, ?,?)";
 
-        return jdbcTemplate.update(sql,id,user.getName(),user.getEmail(), user.getPassword());
+        return jdbcTemplate.update(sql,user.getName(),user.getEmail(), user.getPassword());
     }
 
     @Override
@@ -36,6 +36,7 @@ public class UserMysqlDao implements UserDao{
     private RowMapper<User> mapUser() {
         return (resultSet, i) -> {
             String idStr = resultSet.getString("id");
+
             String name = resultSet.getString("name");
             String email = resultSet.getString("email");
             String password = resultSet.getString("password");

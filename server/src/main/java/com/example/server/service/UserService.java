@@ -14,7 +14,7 @@ public class UserService {
     private final UserDao userDao;
 
     @Autowired
-    public UserService(@Qualifier("UserMysqlDao") UserDao userDao) {
+    public UserService(@Qualifier("FakeUserDao") UserDao userDao) {
         this.userDao = userDao;
     }
 
@@ -36,6 +36,12 @@ public class UserService {
     }
     public int updateUserName(int id, User newUser){
         return userDao.updateUserName(id,newUser);
+    }
+   public int updateUserEmail(int id, User newUser){
+        return userDao.updateUserEmail(id,newUser);
+    }
+   public int updateUserPassword(int id, User newUser){
+        return userDao.updateUserPassword(id,newUser);
     }
 
 }

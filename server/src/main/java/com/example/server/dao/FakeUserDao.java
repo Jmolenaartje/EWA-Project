@@ -22,8 +22,9 @@ public class FakeUserDao implements UserDao {
     private static List<User> database = new ArrayList<>();
 
     @Override
-    public int insertUser(int id, User user) {
-
+    public int insertUser(User user) {
+        // because the id is not auto increment
+        int id = user.getId()+(int) (Math.random()*100);
         database.add(new User(id, user.getName(), user.getEmail(), user.getPassword()));
         return 0;
     }
@@ -61,7 +62,7 @@ public class FakeUserDao implements UserDao {
 
             int indexOfUserToDelete = database.indexOf(u);
             if (indexOfUserToDelete >= 0) {
-                database.set(indexOfUserToDelete, new User(id,user.getName(), user.getEmail(), user.getPassword()));
+                database.set(indexOfUserToDelete, new User(id, user.getName(), user.getEmail(), user.getPassword()));
                 return 1;
             }
             return 0;
