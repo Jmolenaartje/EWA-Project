@@ -55,8 +55,8 @@
                     />
                   </div>
 
-                  <!-- <button class="fas fa-chevron-right ms-1" @click="clickEvent" />
-                --></form>
+                  <button class="fas fa-chevron-right ms-1" @click="clickEvent" />
+               </form>
               </div>
               <router-link to="/profilePage">
                 <div class="btn btn-secondary mt-1">
@@ -89,27 +89,29 @@ export default {
     };
   },
   methods: {
-    clickEvent() {
+    clickEvent(e) {
+      e.preventDefault()
       console.log("imail");
+      this.signup();
+      this.$router.push('/')
     },
     validate() {
       this.errors = [];
       if (!this.email) this.errors.push("Email is required");
-      else this.errors.email.delete;
       if (!this.firstName) this.errors.push("First name is required");
-      else this.errors.firstName.delete;
+
       if (!this.lastName) this.errors.push("Surname is required");
-      else this.errors.lastName.delete;
+    
       if (!this.password1) this.errors.push("Password is required");
-      else this.errors.password1.delete;
+    
       if (!this.password2) this.errors.push("Please repeat your password");
-      else this.errors.password2.delete;
+    
       if (this.password1 != this.password2)
         this.errors.push("The repeated password is not a match");
     },
     signup() {
       this.validate();
-      console.log(this.error);
+      console.log(this.errors);
     },
   },
   watch: {},
