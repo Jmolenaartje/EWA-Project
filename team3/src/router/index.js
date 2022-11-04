@@ -19,9 +19,9 @@ import adminEditProfilePageWithId from "@/views/Admin/adminEditProfilePageWithId
 import adminEditProfilePage from "@/views/Admin/adminEditProfilePage";
 import levelOne from "@/views/levelViews/levelOne";
 import levelTwo from "@/views/levelViews/levelTwo";
-
-
-
+import changeEmail from "@/views/editProfile/changeEmail";
+import changePassword from "@/views/editProfile/changePassword";
+import changeBio from "@/views/editProfile/changeBio";
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -47,6 +47,9 @@ const routes = [
         { path: "game-5", component: gameFiveSub},
         { path: "game-6", component: gameSixSub},
     ]},
+    { path: "/changeEmail", component: changeEmail},
+    { path: "/changePassword", component: changePassword},
+    { path: "/changeBio", component: changeBio},
     { path: "/", redirect: "/home"},
 ];
 
