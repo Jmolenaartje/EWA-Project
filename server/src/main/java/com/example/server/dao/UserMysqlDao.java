@@ -2,10 +2,12 @@ package com.example.server.dao;
 
 import com.example.server.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.beans.BeanProperty;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +16,8 @@ import java.util.Optional;
 public class UserMysqlDao implements UserDao{
 
     private final JdbcTemplate jdbcTemplate;
-@Autowired
+
+    @Autowired
     public UserMysqlDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
