@@ -14,7 +14,7 @@ public class UserService {
     private final UserDao userDao;
 
     @Autowired
-    public UserService(@Qualifier("FakeUserDao") UserDao userDao) {
+    public UserService(@Qualifier("UserMysqlDao") UserDao userDao) {
         this.userDao = userDao;
     }
 

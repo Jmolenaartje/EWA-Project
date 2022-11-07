@@ -15,6 +15,7 @@ public class UserMysqlDao implements UserDao{
 
     private final JdbcTemplate jdbcTemplate;
 @Autowired
+
     public UserMysqlDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }

@@ -47,8 +47,8 @@ public class UserRestController {
         userService.updateUser(id,userUpdate);
 
     }
-@PutMapping(path = "{id}/updateName")
-    public void updateUserName(@PathVariable("id") int id, @RequestBody User userUpdate){
+@PutMapping(path = "updateName")
+    public void updateUserName(@RequestParam("id") int id, @RequestBody User userUpdate){
         userService.updateUserName(id,userUpdate);
     }
 @PutMapping(path = "{id}/updateEmail")
