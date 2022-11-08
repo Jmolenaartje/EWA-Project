@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Repository("QuizMysqlDAO")
 public class QuizMysqlDAO implements QuizDAO{
 
     private final JdbcTemplate jdbcTemplate;
@@ -34,8 +34,8 @@ public class QuizMysqlDAO implements QuizDAO{
 
     @Override
     public int insertQuiz(Quiz quiz) {
-        String sql = " INSERT INTO quiz (name) VALUES(?)";
-        return jdbcTemplate.update(sql, quiz.getName());
+        String sql = " INSERT INTO quiz (id, name) VALUES(?, ?)";
+        return jdbcTemplate.update(sql, 0, quiz.getName());
     }
 
     @Override
