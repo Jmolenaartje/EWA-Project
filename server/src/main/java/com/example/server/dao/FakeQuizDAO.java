@@ -22,7 +22,7 @@ public class FakeQuizDAO implements QuizDAO{
     @Override
     public int insertQuiz(Quiz quiz) {
         int id = quiz.getId()+(int) (Math.random()*100);
-        quizData.add(new Quiz(id, quiz.getName()));
+        quizData.add(new Quiz(id, quiz.getDescription(), quiz.getName()));
         return 0;
     }
 
@@ -31,12 +31,6 @@ public class FakeQuizDAO implements QuizDAO{
         return quizData;
     }
 
-    /**
-     * this methode return the given id by search through the  user list with the stream function
-     *
-     * @param id
-     * @return id
-     */
     @Override
     public Optional<Quiz> selectQuizById(int id) {
         return quizData.stream().filter(quiz -> quiz.getId() == id).findFirst();
@@ -58,11 +52,16 @@ public class FakeQuizDAO implements QuizDAO{
         return selectQuizById(id).map(u -> {
             int indexOfQuizToDelete = quizData.indexOf(u);
             if (indexOfQuizToDelete >= 0) {
-                quizData.set(indexOfQuizToDelete, new Quiz(id, quiz.getName()));
+                quizData.set(indexOfQuizToDelete, new Quiz(id, quiz.getDescription(), quiz.getName()));
                 return 1;
             }
             return 0;
         }).orElse(0);
+    }
+
+    @Override
+    public int updateQuizByDescription(int id, Quiz quiz) {
+        return 0;
     }
 
     @Override

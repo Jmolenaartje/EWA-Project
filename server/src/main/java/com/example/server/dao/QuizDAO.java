@@ -13,5 +13,6 @@ public interface QuizDAO {
     int deleteQuizById(int id);
 
     int updateQuizById(int id, Quiz quiz);
+    int updateQuizByDescription(int id, Quiz quiz);
     int updateQuizName(int id, Quiz quiz);
 }

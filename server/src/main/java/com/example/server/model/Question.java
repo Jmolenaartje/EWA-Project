@@ -19,8 +19,12 @@ public class Question {
 
     private String answer;
 
-    public Question(@JsonProperty("id") int id, @JsonProperty("quizId") int quizId, @JsonProperty("name") String name,
-                    @JsonProperty("question") String question, @JsonProperty("answer") String answer) {
+    public Question(@JsonProperty("id") int id,
+                    @JsonProperty("quizId") int quizId,
+                    @JsonProperty("name") String name,
+                    @JsonProperty("question") String question,
+                    @JsonProperty("answer") String answer) {
+
         this.id = id;
         this.quizId = quizId;
         this.name = name;

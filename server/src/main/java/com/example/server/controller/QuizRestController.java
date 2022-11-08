@@ -44,8 +44,16 @@ public class QuizRestController {
         quizService.updateQuiz(id, quizUpdate);
     }
 
+    @PutMapping(path = "{id}/updateDescription")
+    public void updateQuizDescription(@PathVariable("id") int id, @RequestBody Quiz quizUpdate) {
+        quizService.updateQuizDescription(id, quizUpdate);
+    }
+
     @PutMapping(path = "{id}/updateName")
     public void updateQuizName(@PathVariable("id") int id, @RequestBody Quiz quizUpdate) {
         quizService.updateQuizName(id, quizUpdate);
     }
+
+
+
 }

@@ -23,10 +23,12 @@ public class QuizMysqlDAO implements QuizDAO{
     private RowMapper<Quiz> mapQuiz() {
         return (resultSet, i) -> {
             String idStr = resultSet.getString("id");
+            String description = resultSet.getString("description");
             String name = resultSet.getString("name");
 
             return new Quiz(
                     Integer.parseInt(idStr),
+                    description,
                     name
             );
         };
@@ -34,8 +36,8 @@ public class QuizMysqlDAO implements QuizDAO{
 
     @Override
     public int insertQuiz(Quiz quiz) {
-        String sql = " INSERT INTO quiz (id, name) VALUES(?, ?)";
-        return jdbcTemplate.update(sql, 0, quiz.getName());
+        String sql = " INSERT INTO quiz (id, description, name) VALUES(?, ?, ?)";
+        return jdbcTemplate.update(sql, 0, quiz.getDescription(), quiz.getName());
     }
 
     @Override
@@ -64,6 +66,14 @@ public class QuizMysqlDAO implements QuizDAO{
         return 0;
     }
 
+    @Override
+    public int updateQuizByDescription(int id, Quiz quiz) {
+        String sql = "" + "UPDATE quiz " +
+                "SET description = ? " +
+                "WHERE id = ?";
+
+        return jdbcTemplate.update(sql, quiz.getName(), id);
+    }
     @Override
     public int updateQuizName(int id, Quiz quiz) {
         String sql = "" + "UPDATE quiz " +

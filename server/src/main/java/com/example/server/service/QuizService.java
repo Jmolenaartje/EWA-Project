@@ -32,11 +32,13 @@ public class QuizService {
     public int deleteQuiz(int id) {
         return quizDAO.deleteQuizById(id);
     }
-
     public int updateQuiz(int id, Quiz newQuiz) {
         return quizDAO.updateQuizById(id, newQuiz);
     }
 
+    public int updateQuizDescription(int id, Quiz newQuiz) {
+        return quizDAO.updateQuizByDescription(id, newQuiz);
+    }
     public int updateQuizName(int id, Quiz newQuiz) {
         return quizDAO.updateQuizName(id, newQuiz);
     }
