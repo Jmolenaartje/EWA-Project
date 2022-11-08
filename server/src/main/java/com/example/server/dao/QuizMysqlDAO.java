@@ -1,7 +1,9 @@
 package com.example.server.dao;
 
 import com.example.server.model.Quiz;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,19 +14,35 @@ public class QuizMysqlDAO implements QuizDAO{
 
     private final JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public QuizMysqlDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
 
+    private RowMapper<Quiz> mapQuiz() {
+        return (resultSet, i) -> {
+            String idStr = resultSet.getString("id");
+            String name = resultSet.getString("name");
+
+            return new Quiz(
+                    Integer.parseInt(idStr),
+                    name
+            );
+        };
+    }
+
     @Override
     public int insertQuiz(Quiz quiz) {
-        return 0;
+        String sql = " INSERT INTO quiz (name) VALUES(?)";
+        return jdbcTemplate.update(sql, quiz.getName());
     }
 
     @Override
     public List<Quiz> selectAllQuizzes() {
-        return null;
+        String sql = "SELECT * FROM quiz";
+
+        return jdbcTemplate.query(sql, mapQuiz());
     }
 
     @Override
@@ -34,7 +52,11 @@ public class QuizMysqlDAO implements QuizDAO{
 
     @Override
     public int deleteQuizById(int id) {
-        return 0;
+        String sql = "" +
+                "DELETE FROM quiz " +
+                "WHERE id = ?";
+
+        return jdbcTemplate.update(sql, id);
     }
 
     @Override
@@ -44,6 +66,10 @@ public class QuizMysqlDAO implements QuizDAO{
 
     @Override
     public int updateQuizName(int id, Quiz quiz) {
-        return 0;
+        String sql = "" + "UPDATE quiz " +
+                "SET name = ? " +
+                "WHERE id = ?";
+
+        return jdbcTemplate.update(sql, quiz.getName(), id);
     }
 }

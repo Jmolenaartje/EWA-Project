@@ -14,7 +14,7 @@ public class QuizService {
     private final QuizDAO quizDAO;
 
     @Autowired
-    public QuizService(@Qualifier("FakeQuizDAO") QuizDAO quizDAO) {
+    public QuizService(@Qualifier("QuizDAO") QuizDAO quizDAO) {
         this.quizDAO = quizDAO;
     }
 

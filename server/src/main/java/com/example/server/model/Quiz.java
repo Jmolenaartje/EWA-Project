@@ -13,7 +13,8 @@ public class Quiz {
 
     private String name;
 
-    public Quiz(@JsonProperty("id") int id, @JsonProperty("name") String name) {
+    public Quiz(@JsonProperty("id") int id,
+                @JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
     }
