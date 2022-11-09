@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @RequestMapping("user")
 @RestController
-@CrossOrigin("http://localhost:8080/")
+//@CrossOrigin("http://localhost:8080/")
 public class UserRestController {
     private final UserService userService;
 
@@ -59,6 +59,5 @@ public class UserRestController {
     public void updateUserPassword(@PathVariable("id") int id, @RequestBody User userUpdate){
         userService.updateUserPassword(id,userUpdate);
     }
-
 
 }
