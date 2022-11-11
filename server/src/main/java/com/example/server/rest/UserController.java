@@ -25,7 +25,7 @@ public class UserController {
        User addedUser = this.usersRepo.save(newUser);
         return ResponseEntity.ok().body(addedUser);
     }
-    
+
 
     @GetMapping(path = "{id}")
     public ResponseEntity<User> getOneAuthor(@PathVariable() int id) {

@@ -46,6 +46,14 @@ public class UsersRepository implements EntityRepository<User>{
     }
 
     @Override
+    public User updateById(User entity) {
+        this.entityManager.merge(entity);
+        return entity;
+    }
+
+
+
+    @Override
     public List<User> findByQuery(String jpqlName, Object ...params) {
         TypedQuery<User> query =
                 this.entityManager.createNamedQuery(jpqlName, User.class);
