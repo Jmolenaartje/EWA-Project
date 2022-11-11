@@ -45,10 +45,15 @@ public class UsersRepository implements EntityRepository<User>{
         return user;
     }
 
-    @Override
-    public User updateById(User entity) {
-        this.entityManager.merge(entity);
-        return entity;
+
+    public User updateById(int id,User user) {
+       User userUpdate = findById(id);
+       if (userUpdate==null){
+           return null;
+       }
+       userUpdate.setName(user.getName());
+       userUpdate.setEmail(user.getEmail());
+        return userUpdate;
     }
 
 
