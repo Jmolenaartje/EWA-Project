@@ -34,7 +34,7 @@ public class UserController {
         User user = this.usersRepo.findById(id);
         //TODO fix exception
         if (user == null) {
-            throw new NotFoundException("Cannot delete a user with id="+id);
+            throw new NotFoundException(String.format("user not found in database with id %d" , id));
         }
         return ResponseEntity.ok().body(user);
     }
@@ -44,7 +44,7 @@ public class UserController {
         User addedUser = this.usersRepo.updateById(id, newUser);
         if (addedUser == null) {
 
-            throw new NotFoundException("user not found in database"+id);
+            throw new NotFoundException(String.format("user not found in database with id %id",id));
         }
         return ResponseEntity.ok().body(addedUser);
     }
