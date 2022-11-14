@@ -1,7 +1,6 @@
 package com.example.server.dao;
 
 import com.example.server.model.Score;
-import com.example.server.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

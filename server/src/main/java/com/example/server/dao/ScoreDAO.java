@@ -1,11 +1,9 @@
 package com.example.server.dao;
 
 import com.example.server.model.Score;
-import com.example.server.model.User;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface ScoreDAO {
 
