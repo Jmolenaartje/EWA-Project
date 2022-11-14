@@ -2,8 +2,8 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <h1>Users:</h1>
-      <div class="container">
-  <div v-for="(user) in this.users" :key="user.userName" class="card" @click="toEditUser($event)">
+      <div class="container" @click="toEditUser($event)">
+  <div v-for="user in users" :key="user" class="card" >
     <div class="card-body">
 
       <img
@@ -37,8 +37,10 @@ export default {
   },
 
   created() {
-    this.users[0] = new User("Jaap Klok", 12343);
-    this.users[1] = new User("Piet de Hond", "DAE132s!");
+    for (let i = 0; i <8 ; i++) {
+      this.users.push(User.createUser())
+    }
+
   },
 
   methods: {
