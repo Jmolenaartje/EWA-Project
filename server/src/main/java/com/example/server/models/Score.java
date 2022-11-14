@@ -1,23 +1,37 @@
-package com.example.server.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.UUID;
+package com.example.server.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Score {
-    private final int id;
-    private final int gameId;
-    private final int userIdGame;
-    private final int score;
 
-    public Score(@JsonProperty("id") int id,
-                 @JsonProperty("gameId") int gameId,
-                 @JsonProperty("userGameId") int userIdGame,
-                 @JsonProperty("Score") int score) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private int gameId;
+    private int userIdGame;
+    private int score;
+
+    public Score(int id,
+                 int gameId,
+                 int userIdGame,
+                 int score) {
         this.id = id;
         this.gameId = gameId;
         this.userIdGame = userIdGame;
         this.score = score;
+    }
+    public Score(int id) {
+        this.id = id;
+    }
+
+    public Score() {
+
     }
 
 
@@ -37,6 +51,15 @@ public class Score {
         return score;
     }
 
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
 
+    public void setUserIdGame(int userIdGame) {
+        this.userIdGame = userIdGame;
+    }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
 }
