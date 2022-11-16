@@ -9,21 +9,22 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    //todo have it so there are many questions connected to one quiz
+
     private String name;
     private String description;
 
-    public Quiz() {
+    public Quiz(int id, String name, String description) {
+        this(id);
+        this.name = name;
+        this.description = description;
     }
 
     public Quiz(int id) {
         this.id = id;
     }
 
-    public Quiz(int id, String name, String description) {
-        this(id);
-        this.name = name;
-        this.description = description;
-
+    public Quiz() {
     }
 
     public int getId() {

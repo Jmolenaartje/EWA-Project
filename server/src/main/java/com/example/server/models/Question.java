@@ -8,17 +8,12 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    //@ManyToOne
+    //todo not like this but a many questions to one quiz relationship
     private int quizId;
 
     private String question;
     private String answer;
 
-    public Question(int id) {
-        this.id = id;
-    }
-    public Question() {
-    }
 
     public Question(int id, int quizId, String question, String answer) {
         this(id);
@@ -26,6 +21,14 @@ public class Question {
         this.question = question;
         this.answer = answer;
     }
+
+    public Question(int id) {
+        this.id = id;
+    }
+
+    public Question() {
+    }
+
 
     public int getId() {
         return id;
