@@ -51,7 +51,7 @@ export default {
   name: "levelOverview",
   methods: {
     clickEvent() {
-      // this.$router.push("/levelOne");
+      this.$router.push("/levelOne");
     }
   }
 }

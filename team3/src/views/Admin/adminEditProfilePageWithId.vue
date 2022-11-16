@@ -27,7 +27,7 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-map-marker-alt"></i>
-                      <input type="text" value="Amsterdam, The Netherlands" />
+                      <input v-model="selectedUser" />
                     </p>
                   </div>
                 </div>
@@ -112,6 +112,7 @@ export default {
   data(){
     return {
     selectedUser: this.$route.params.id
+
     }
   },
 
