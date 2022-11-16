@@ -12,6 +12,7 @@ import javax.transaction.Transactional;
 
 @RestController
 @RequestMapping("notes")
+@CrossOrigin(origins = "http://localhost:8080")
 public class NotesController {
 
     @Autowired
