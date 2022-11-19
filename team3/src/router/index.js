@@ -57,6 +57,7 @@ const routes = [
         ]},
     { path: "/createNote/:id", component: createNote},
 
+    { path: "/:pathMatch(.*)*", name: "not-found", component: Welcome },
     { path: "/", redirect: "/home"},
 ];
 

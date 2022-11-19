@@ -9,27 +9,20 @@
         </div>
       </div>
 
-      <!-- Note cards -->
-      <div class="row">
-        <div v-for="note in notes" :key="note.id" class="col-12 col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">NoteId: {{ note['userId'] }}</h5>
-              <p class="card-text">
-                {{
-                  note['note']
-                }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Notes -->
+      <ul>
+        <li v-for="note in notes" :key="note.id">
+          <a href="#">
+            <h2>{{ note['userId'] }}</h2>
+            <p>{{note['note']}}</p>
+          </a>
+        </li>
+      </ul>
 
       <!-- Create new note button -->
       <div class="row">
         <div class="col-12">
-          <!--          <button class="btn btn-primary"> <router-link to="createNote">Create a new note</router-link></button>-->
-          <button class="btn btn-primary">Create a new note</button>
+         <button class="btn btn-primary"> <router-link to="/createNote/1">Create a new note</router-link></button>
         </div>
       </div>
     </div>
@@ -73,33 +66,111 @@ export default {
 
 <style scoped>
 /* Card styling */
-.card {
-  background: transparent;
-  margin-left: 5em;
-  margin-right: 5em;
-  margin-bottom: 1em;
-
-  /* give min width and height to the card */
-  min-width: 300px;
-  min-height: 200px;
-
+body {
+  margin: 20px auto;
+  font-family: 'Lato';
+  background:#666;
+  color:#fff;
 }
 
-.card-body {
-  background: #fff;
-  border-radius: 0.5em;
-  padding: 0.5em;
+*{
+  margin:0;
+  padding:0;
 }
 
-.card-title {
-  color: black;
-  font-size: 1.5em;
+h2 {
   font-weight: bold;
+  font-size: 2rem;
 }
 
-.card-text {
-  color: black;
-  font-size: 1em;
+p {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+ul,li{
+  list-style:none;
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+}
+ul li{
+  margin:1em;
+}
+/* Shadow */
+ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+}
+/* Hover Effect */
+ul li a{
+  transform: rotate(-6deg);
+}
+
+/* Random tilt */
+ul li:nth-child(even) a{
+  transform:rotate(4deg);
+  position:relative;
+  top:5px;
+}
+ul li:nth-child(3n) a{
+  transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+}
+ul li:nth-child(5n) a{
+  transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+
+/* Zoom Effect */
+ul li a:hover,ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+
+/* Transition */
+ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transition: transform .15s linear;
+}
+
+ul li:nth-child(even) a{
+  position:relative;
+  top:5px;
+  background:#cfc;
+}
+ul li:nth-child(3n) a{
+  position:relative;
+  top:-5px;
+  background:#ccf;
 }
 
 /* Button styling */
