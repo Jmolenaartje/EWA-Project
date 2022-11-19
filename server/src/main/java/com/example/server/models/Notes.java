@@ -1,5 +1,7 @@
 package com.example.server.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,13 +13,20 @@ public class Notes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @JsonProperty("userId")
     private String userId;
 
+    @JsonProperty("note")
     private String note;
 
 
     public Notes(int id, String userId, String note) {
         this.id = id;
+        this.userId = userId;
+        this.note = note;
+    }
+
+    public Notes(String userId, String note) {
         this.userId = userId;
         this.note = note;
     }

@@ -3,6 +3,10 @@ package com.example.server.rest;
 import com.example.server.models.Notes;
 import com.example.server.repositories.EntityRepository;
 import com.example.server.repositories.NotesRepository;
+import org.apache.tomcat.util.json.JSONParser;
+import org.aspectj.weaver.ast.Not;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +19,8 @@ import javax.transaction.Transactional;
 @CrossOrigin(origins = "http://localhost:8080")
 public class NotesController {
 
+    Logger logger = LoggerFactory.getLogger(NotesController.class);
+
     @Autowired
     NotesRepository notesRepo;
 
@@ -25,9 +31,12 @@ public class NotesController {
 
     @Transactional
     @PostMapping(path = "add")
-    public ResponseEntity<Notes> addNotes(@RequestBody Notes newNotes) {
-        Notes addedNotes = this.notesRepo.save(newNotes);
-        return ResponseEntity.ok().body(addedNotes);
+    public ResponseEntity<Notes> addNotes(@RequestBody Notes notes) {
+        // add the notes to the database
+        this.notesRepo.save(notes);
+
+        // return the notes
+        return ResponseEntity.ok(notes);
     }
 
     @GetMapping(path = "{id}")

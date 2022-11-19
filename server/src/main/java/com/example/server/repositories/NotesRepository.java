@@ -43,7 +43,8 @@ public class NotesRepository implements EntityRepository<Notes>{
 
     @Override
     public Notes save(Notes entity) {
-        return this.entityManager.merge(entity);
+        this.entityManager.persist(entity);
+        return entity;
     }
 
     @Override

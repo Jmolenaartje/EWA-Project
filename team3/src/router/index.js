@@ -22,7 +22,8 @@ import levelTwo from "@/views/levelViews/levelTwo";
 import changeEmail from "@/views/editProfile/changeEmail";
 import changePassword from "@/views/editProfile/changePassword";
 import changeBio from "@/views/editProfile/changeBio";
-import userNotes from "@/views/userNotes";
+import userNotes from "@/views/notes/userNotes";
+import createNote from "@/views/notes/createNote";
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -54,6 +55,8 @@ const routes = [
     { path: "/userNotes", component: userNotes, children: [
             { path: ':id', component: userNotes},
         ]},
+    { path: "/createNote/:id", component: createNote},
+
     { path: "/", redirect: "/home"},
 ];
 

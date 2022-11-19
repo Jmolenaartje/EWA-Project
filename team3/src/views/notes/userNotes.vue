@@ -54,7 +54,7 @@ export default {
   created() {
     // retrieve id from url using vue
     const id = this.$route.params.id;
-    
+
     this.getNotes(id);
   },
 
