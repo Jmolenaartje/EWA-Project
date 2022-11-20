@@ -15,7 +15,7 @@ export default class UserRepository {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({user}),
+            body: JSON.stringify({}),
         });
         return await response.json();
     }
