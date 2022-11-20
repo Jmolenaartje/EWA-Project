@@ -56,6 +56,12 @@ public class UsersRepository implements EntityRepository<User>{
         return userUpdate;
     }
 
+    public User deleteById(int id) {
+        User user = findById(id);
+        this.entityManager.remove(user);
+        return user;
+    }
+
 
 
     @Override

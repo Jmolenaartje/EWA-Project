@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     EntityRepository<User> usersRepo;
 
-    @GetMapping(path = "")
+    @GetMapping(path = "all")
     public List<User> getAllUsers() {
         return this.usersRepo.findAll();
     }
@@ -47,6 +47,12 @@ public class UserController {
             throw new NotFoundException(String.format("user not found in database with id %id",id));
         }
         return ResponseEntity.ok().body(addedUser);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<User> deleteUser(@PathVariable() int id) {
+        User deletedUser = this.notesRepo.deleteById(id);
+        return ResponseEntity.ok().body(deletedNotes);
     }
 
 
