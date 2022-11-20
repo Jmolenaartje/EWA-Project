@@ -61,7 +61,7 @@ export default {
     // TODO fix this
     setTimeout(() => {
       this.getNotes(id);
-    }, 5);
+    }, 25);
   },
 
   methods: {
