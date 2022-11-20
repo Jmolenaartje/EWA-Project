@@ -56,4 +56,10 @@ public class NotesController {
         Notes addedNotes = this.notesRepo.updateById(id, newNotes);
         return ResponseEntity.ok().body(addedNotes);
     }
+
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<Notes> deleteNotes(@PathVariable() int id) {
+        Notes deletedNotes = this.notesRepo.deleteById(id);
+        return ResponseEntity.ok().body(deletedNotes);
+    }
 }

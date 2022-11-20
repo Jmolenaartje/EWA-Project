@@ -56,7 +56,7 @@ export default {
       this.repository.createNote(this.$route.params.id, content);
 
       // redirect to user notes
-      this.$router.push("/userNotes/" + this.$route.params.id);
+      this.$router.push("/notes/" + this.$route.params.id);
     }
   }
 }

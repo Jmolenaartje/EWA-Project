@@ -12,8 +12,17 @@
       <!-- Notes -->
       <ul>
         <li v-for="note in notes" :key="note.id">
-          <a href="#">
-            <h2>{{ note['userId'] }}</h2>
+          <a>
+            <!-- Cross to delete note -->
+            <button class="btn-delete" @click="deleteNote(note.id)">
+              <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Edit icon to edit note -->
+            <button class="btn-edit" @click="editNote(note.id)">
+              <i class="fas fa-edit"></i>
+            </button>
+
             <p>{{note['note']}}</p>
           </a>
         </li>
@@ -48,7 +57,11 @@ export default {
     // retrieve id from url using vue
     const id = this.$route.params.id;
 
-    this.getNotes(id);
+    // small timeout otherwise some updates are not shown <-- moet gefixt worden later!
+    // TODO fix this
+    setTimeout(() => {
+      this.getNotes(id);
+    }, 5);
   },
 
   methods: {
@@ -57,6 +70,18 @@ export default {
       this.notes = await this.repository.getNotes(id);
       console.log(this.notes);
     },
+
+    // delete note async
+    async deleteNote(id) {
+      console.log(id);
+      await this.repository.deleteNoteById(id);
+      await this.getNotes(this.$route.params.id);
+    },
+
+    // onclick edit note send to edit note page with id and note content
+    editNote(id) {
+      this.$router.push("/updateNote/" + id);
+    }
   }
 }
 
@@ -98,7 +123,7 @@ ul{
 }
 ul li a{
   text-decoration:none;
-  color:#000;
+  color:#000 !important;
   background:#ffc;
   display:block;
   height:10em;
@@ -204,6 +229,24 @@ ul li:nth-child(3n) a{
   color: #fff;
   background-color: #0069d9;
   border-color: #0062cc;
+}
+
+/* btn delete styling */
+.btn-delete {
+  background: transparent;
+  border: none;
+
+  /* margin so its not to close to edit */
+  margin-right: 3em;
+}
+
+.btn-edit {
+  background: transparent;
+  border: none;
+
+  /* margin so its not to close to delete */
+  margin-left: 3em;
+
 }
 
 </style>
