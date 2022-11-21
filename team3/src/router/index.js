@@ -26,6 +26,8 @@ import changeBio from "@/views/editProfile/changeBio";
 import userNotes from "@/views/notes/userNotes";
 import createNote from "@/views/notes/createNote";
 import updateNote from "@/views/notes/updateNote";
+import ErrorPage from "@/components/ErrorPage";
+
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -62,7 +64,7 @@ const routes = [
     { path: "/createNote/:id", component: createNote},
     { path: "/updateNote/:id", component: updateNote},
 
-    { path: "/:pathMatch(.*)*", name: "not-found", component: Welcome },
+    { path: "/:pathMatch(.*)*", name: "not-found", component: ErrorPage},
     { path: "/", redirect: "/home"},
 ];
 
