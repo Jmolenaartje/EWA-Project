@@ -22,6 +22,9 @@ import levelTwo from "@/views/levelViews/levelTwo";
 import changeEmail from "@/views/editProfile/changeEmail";
 import changePassword from "@/views/editProfile/changePassword";
 import changeBio from "@/views/editProfile/changeBio";
+import userNotes from "@/views/notes/userNotes";
+import createNote from "@/views/notes/createNote";
+import updateNote from "@/views/notes/updateNote";
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -50,6 +53,13 @@ const routes = [
     { path: "/changeEmail", component: changeEmail},
     { path: "/changePassword", component: changePassword},
     { path: "/changeBio", component: changeBio},
+    { path: "/notes", component: userNotes, children: [
+            { path: ':id', component: userNotes},
+        ]},
+    { path: "/createNote/:id", component: createNote},
+    { path: "/updateNote/:id", component: updateNote},
+
+    { path: "/:pathMatch(.*)*", name: "not-found", component: Welcome },
     { path: "/", redirect: "/home"},
 ];
 
