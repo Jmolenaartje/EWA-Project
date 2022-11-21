@@ -15,7 +15,7 @@
             <!-- divider -->
             <div class="d-flex flex-column align-items-center">
               <div class="d-flex align-items-center">
-                <form @submit.prevent="createAccount"  >
+                <form @submit.prevent="postUser">
                   <div class="form-group mb-3">
                     <label for="userNameLabel">user name</label>
                     <input
@@ -29,7 +29,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        v-model="firstName"
+                        v-model="name"
                         placeholder="first name"
                         required
                     />
@@ -52,13 +52,11 @@
                     <input class="btn btn-secondary mt-1" type="submit" value="create account">
 
 
-
                   </div>
 
                   <!-- <button class="fas fa-chevron-right ms-1" @click="clickEvent" />
                 --></form>
               </div>
-
 
 
               <div class="btn btn-secondary mt-1">
@@ -74,24 +72,29 @@
 </template>
 
 <script>
+
+import UserRepository from "@/repository/userRepository";
+
 export default {
   data() {
     return {
       error: [],
       email: null,
-      firstName: null,
+      name: null,
       userName: null,
       password: null,
+
+      repository: new UserRepository(),
 
     };
   },
   methods: {
-    clickEvent() {
-      console.log("imail");
+    async postUser() {
+
+      await this.repository.createUser(this.userName, this.name, this.email, this.password);
+
     },
-    createAccount(){
-      console.log(this.firstName);
-    },
+
     validate() {
 
     },
@@ -99,8 +102,7 @@ export default {
       this.validate();
       console.log(this.error);
     },
-  },
-  watch: {},
+  }
 };
 </script>
 

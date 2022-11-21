@@ -37,13 +37,6 @@ public class UsersRepository implements EntityRepository<User>{
         return this.entityManager.merge(user);
     }
 
-    @Override
-    public User deleteById(int id) {
-
-        User user  = this.findById(id);
-        this.entityManager.remove(user);
-        return user;
-    }
 
 
     public User updateById(int id,User user) {

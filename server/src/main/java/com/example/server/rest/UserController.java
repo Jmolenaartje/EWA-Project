@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
+@CrossOrigin(origins = "http://localhost:8080")
 public class UserController {
     @Autowired
     EntityRepository<User> usersRepo;
@@ -51,8 +52,8 @@ public class UserController {
 
     @DeleteMapping(path = "{id}")
     public ResponseEntity<User> deleteUser(@PathVariable() int id) {
-        User deletedUser = this.notesRepo.deleteById(id);
-        return ResponseEntity.ok().body(deletedNotes);
+        User deletedUser = this.usersRepo.deleteById(id);
+        return ResponseEntity.ok().body(deletedUser);
     }
 
 

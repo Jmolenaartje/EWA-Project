@@ -13,6 +13,8 @@ public class User {
 
     private String name;
 
+    private String userName;
+
     private String email;
 
 
@@ -24,10 +26,13 @@ public class User {
         this.id = id;
     }
 
-    public User(int id,String email,String name){
+    public User(int id,String email,String name,String password,String userName){
         this(id);
         this.setEmail(email);
         this.setName(name);
+        this.setUserName(userName);
+        this.setPassword(password);
+
 
     }
 
@@ -57,5 +62,19 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }
