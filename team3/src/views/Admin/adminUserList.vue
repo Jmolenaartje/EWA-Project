@@ -2,8 +2,8 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <h1>Users:</h1>
-      <div class="container" @click="toEditUser($event)">
-  <div v-for="user in users" :key="user" class="card" >
+      <div class="container" >
+  <div @click="test" v-for="user in users" :key="user" class="card" >
     <div class="card-body">
 
       <img
@@ -13,7 +13,7 @@
       />
 
       <div class="col">
-        <div class="userName">{{user.userName}}</div>
+        <div @click="toEditUser(user)"  class="userName">{{user.userName}}</div>
       </div>
 
     </div>
@@ -25,7 +25,9 @@
 </template>
 
 <script>
-import {User} from "@/assets/js/user.js";
+// import {User} from "@/assets/js/user.js";
+
+import UserRepository from "@/repository/userRepository";
 export default {
   name: "adminUserList",
 
@@ -33,20 +35,38 @@ export default {
   data() {
     return {
       users: [],
+      id:'',
+
+      repository: new UserRepository(),
     }
   },
 
-  created() {
-    for (let i = 0; i <8 ; i++) {
-      this.users.push(User.createUser())
+  async created() {
+    const  data = await this.repository.getUserAll();
+    for (let i = 0; i < data.length; i++) {
+
+      this.users.push(data[i]);
     }
 
   },
 
   methods: {
+    async test(){
 
-    toEditUser(event){
-      this.$router.push("/admin-edit-user/" + event.target.innerHTML)
+    },
+
+    toEditUser(user){
+      this.$router.push("/admin-edit-user/" + user.id)
+
+      localStorage.id = "";
+      localStorage.name = "";
+      localStorage.email = "";
+
+      localStorage.id = user.id;
+      localStorage.name = user.name;
+      localStorage.email = user.email;
+
+
     }
 
   }

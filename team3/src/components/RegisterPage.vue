@@ -90,14 +90,13 @@ export default {
   },
   methods: {
     async postUser() {
+      
 
       await this.repository.createUser(this.userName, this.name, this.email, this.password);
-
+      const form = document.querySelector('form')
+      form.reset();
     },
 
-    validate() {
-
-    },
     signup() {
       this.validate();
       console.log(this.error);

@@ -12,22 +12,22 @@
             <div class="row">
               <div class="col-12 col-md-4">
                 <img
-                  src="https://www.w3schools.com/howto/img_avatar.png"
-                  alt="Avatar"
-                  class="avatar"
+                    src="https://www.w3schools.com/howto/img_avatar.png"
+                    alt="Avatar"
+                    class="avatar"
                 />
               </div>
               <div class="col-12 col-md-8">
                 <div class="row">
                   <div class="col-12">
-                    <input v-model="selectedUser" />
+                    <input v-model="selectedName"/>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12">
                     <p>
                       <i class="fas fa-map-marker-alt"></i>
-                      <input v-model="selectedUser" />
+                      <input v-model="selectedUserEmail"/>
                     </p>
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-envelope"></i>
-                      <input type="text" value="email@gmail.com" />
+                      <input type="text" v-model="selectedUserEmail"/>
                     </p>
                   </div>
                 </div>
@@ -43,7 +43,7 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-phone"></i>
-                      <input type="text" value="0612345678" />
+                      <input type="text" value="0612345678"/>
                     </p>
                   </div>
                 </div>
@@ -52,7 +52,11 @@
                     <button class="btn btn-primary">Change Password</button>
                   </div>
                 </div>
-              </div>
+                <div class="row">
+                  <div class="col-12">
+                    <button class="btn btn-primary" @click="this.delete()" >delete</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -72,52 +76,63 @@
         <!-- Table with level overview -->
         <table class="table">
           <thead>
-            <tr>
-              <th scope="col">Level ID</th>
-              <th scope="col">Level Name</th>
-              <th scope="col">Level Score</th>
-              <th scope="col">Level Status</th>
-            </tr>
+          <tr>
+            <th scope="col">Level ID</th>
+            <th scope="col">Level Name</th>
+            <th scope="col">Level Score</th>
+            <th scope="col">Level Status</th>
+          </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Level 1</td>
-              <td>100</td>
-              <td>Completed</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Level 2</td>
-              <td>200</td>
-              <td>Completed</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Level 3</td>
-              <td>300</td>
-              <td>Completed</td>
-            </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Level 1</td>
+            <td>100</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Level 2</td>
+            <td>200</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Level 3</td>
+            <td>300</td>
+            <td>Completed</td>
+          </tr>
           </tbody>
         </table>
       </div>
     </div>
+  </div>
 
 </template>
 
 <script>
+import UserRepository from "@/repository/userRepository";
 export default {
   name: "profilePage",
 
-  data(){
+  data() {
     return {
-    selectedUser: this.$route.params.id
+      // to get the details of the user out the localStorage
+      selectedName: localStorage.getItem('name'),
+      selectedUserEmail: localStorage.getItem('email'),
+      repository: new UserRepository(),
 
     }
   },
+  methods: {
+   async delete() {
+     const id= localStorage.id;
+      await this.repository.deleteUserById(id) ;
 
-  mounted() {
-  }
+      this.$router.push("/admin-users");
+    }
+  },
+
 }
 </script>
 
@@ -154,6 +169,7 @@ a:hover {
   color: #4b68b8;
   text-decoration: none;
 }
+
 .card-body {
   padding: 2em;
 }

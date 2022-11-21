@@ -22,21 +22,21 @@ export default class UserRepository {
         return await response.json();
     }
 
-    // async deleteUserById(user) {
-    //     const response = await fetch('http://localhost:8089/users/' + userId, {
-    //         method: 'DELETE',
-    //     });
-    //     return await response.json();
-    // }
-    //
-    // async updateUserById( userId, user) {
-    //     const response = await fetch('http://localhost:8089/users/' + userId, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({userId, user}),
-    //     });
-    //     return await response.json();
-    // }
+    async deleteUserById(userId) {
+        const response = await fetch('http://localhost:8089/users/' + userId, {
+            method: 'DELETE',
+        });
+        return await response.json();
+    }
+
+    async updateUserById( userId, user) {
+        const response = await fetch('http://localhost:8089/users/' + userId, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({userId, user}),
+        });
+        return await response.json();
+    }
 }
