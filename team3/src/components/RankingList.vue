@@ -8,7 +8,9 @@
           <div class="card-body">
 
             <div class="col">
-              <div class="ranking">{{baseRank + user.rank}}</div>
+<!--              <div class="ranking">{{baseRank + user.rank}}</div>-->
+              <div class="ranking">{{user.rank}}</div>
+<!--              <div class="ranking">{{number++}}</div>-->
             </div>
 
             <img
@@ -27,8 +29,9 @@
           </div>
         </div>
 
-        <!--            todo check page-size and page-number WF examplest-->
-        <!--            todo check into bread crumbs-->
+        <!--            todo check page-size and page-number WF examples -->
+        <!--            todo check into bread crumbs (google it ya know what it means)-->
+        <!--            todo make it responsive-->
 
         <div class="btn btn-primary" id="previous"><span class="fas fa-chevron-left ms-1"></span>Previous</div>
 
@@ -47,7 +50,7 @@ export default {
   data() {
     return {
       users: [],
-      baseRank: 0,
+      // baseRank: 0,
     }
   },
 
@@ -58,6 +61,7 @@ export default {
 
   },
 }
+
 </script>
 
 <style scoped>
@@ -76,9 +80,6 @@ export default {
   cursor: pointer;
 }
 
-@font-face {
-
-}
 .ranking, .score {
   font-size: 60px;
 }
@@ -86,12 +87,14 @@ export default {
 .ranking {
   float: left;
   padding: 10px;
-  margin-right: 40px;
+  margin-right: 50px;
+  margin-left: 10px;
 }
 
 .avatar {
   width: 90px;
   border-radius: 50%;
+  margin-top: 10px;
   float: left;
 }
 
