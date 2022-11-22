@@ -20,18 +20,24 @@ public class User {
 
     private String password;
 
+
+
+    private boolean isAdmin;
+
     public User() {
     }
     public User(int id) {
         this.id = id;
     }
 
-    public User(int id,String email,String name,String password,String userName){
+    public User(int id,String email,String name,String password,String userName,boolean isAdmin){
         this(id);
         this.setEmail(email);
         this.setName(name);
         this.setUserName(userName);
         this.setPassword(password);
+        this.setAdmin(isAdmin);
+
 
 
     }
@@ -76,5 +82,12 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }
