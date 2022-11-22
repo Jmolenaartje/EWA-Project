@@ -1,8 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-
 import Welcome from '@/components/Welcome.vue'
 import profilePage from "@/views/profilePage.vue";
+import RankingList from "@/components/RankingList";
+import ComingSoon from "@/components/ComingSoon";
 import levelOverview from "@/views/levelOverview";
 import SignIn from "../components/SignIn.vue";
 import RegisterPage from "../components/RegisterPage.vue";
@@ -25,11 +26,15 @@ import changeBio from "@/views/editProfile/changeBio";
 import userNotes from "@/views/notes/userNotes";
 import createNote from "@/views/notes/createNote";
 import updateNote from "@/views/notes/updateNote";
+import ErrorPage from "@/components/ErrorPage";
+
 
 const routes = [
     { path: "/home", component: Welcome },
     { path: "/", redirect: "/home"},
     { path: "/profilePage", component: profilePage},
+    { path: "/rankingList", component: RankingList},
+    { path: "/comingSoon", component: ComingSoon},
     { path: "/signIn", component: SignIn},
     { path: "/registerPage", component: RegisterPage},
     { path: "/profilePage", component: profilePage},
@@ -59,7 +64,7 @@ const routes = [
     { path: "/createNote/:id", component: createNote},
     { path: "/updateNote/:id", component: updateNote},
 
-    { path: "/:pathMatch(.*)*", name: "not-found", component: Welcome },
+    { path: "/:pathMatch(.*)*", name: "not-found", component: ErrorPage},
     { path: "/", redirect: "/home"},
 ];
 

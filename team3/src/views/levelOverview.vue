@@ -19,26 +19,32 @@
           </router-link>
         </div>
         <div class="row-level">
+          <router-link to="/comingSoon">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel3.png">
           <img class="levelLogoImages" id="safariImg"  src="../assets/img/logoLevels/safariLevel.png">
-          <div class="levelBox"><p class="levelText">level 3</p>
-          </div>
+          <div class="levelBox"><p class="levelText">level 3</p></div>
+          </router-link>
         </div>
         <div class="row-level">
+          <router-link to="/comingSoon">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel4.png">
           <img class="levelLogoImages" id="safariImg"  src="../assets/img/logoLevels/feedback.png">
           <div class="levelBox"><p class="levelText">level 4</p></div>
+          </router-link>
         </div>
         <div class="row-level">
+          <router-link to="/comingSoon">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel5.png">
           <img class="levelLogoImages" id="safariImg"  src="../assets/img/logoLevels/meetingRound.png">
           <div class="levelBox"><p class="levelText">level 5</p></div>
+          </router-link>
         </div>
         <div class="row-level">
+          <router-link to="/comingSoon">
           <img class="levelNumImages" src="../assets/img/levelNumbers/numLevel6.png">
           <img class="levelLogoImages" id="safariImg"  src="../assets/img/logoLevels/bossMeeting.png">
-          <div class="levelBox"><p class="levelText">level 6</p>
-          </div>
+          <div class="levelBox"><p class="levelText">level 6</p></div>
+          </router-link>
         </div>
       </div>
     </div>
