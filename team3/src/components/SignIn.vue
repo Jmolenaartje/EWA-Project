@@ -82,8 +82,7 @@ export default {
       console.log(this.password);
 
       // log in
-      this.repository.loginUser(this.username, this.password);
-
+      console.log(this.repository.loginUser(this.username, this.password));
     },
   },
 
