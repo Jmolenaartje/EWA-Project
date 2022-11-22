@@ -3,6 +3,9 @@ package com.example.server.rest;
 import com.example.server.exceptions.NotFoundException;
 import com.example.server.models.User;
 import com.example.server.repositories.EntityRepository;
+import com.example.server.repositories.UsersRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +17,11 @@ import java.util.List;
 @RequestMapping("users")
 @CrossOrigin(origins = "http://localhost:8080")
 public class UserController {
+
+    Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
-    EntityRepository<User> usersRepo;
+    UsersRepository usersRepo;
 
     @GetMapping(path = "all")
     public List<User> getAllUsers() {
@@ -54,6 +60,18 @@ public class UserController {
     public ResponseEntity<User> deleteUser(@PathVariable() int id) {
         User deletedUser = this.usersRepo.deleteById(id);
         return ResponseEntity.ok().body(deletedUser);
+    }
+
+    @PostMapping(path = "login")
+    public ResponseEntity<User> login(@RequestBody User user) {
+        // log user with logger
+        logger.warn("logging in user: " + user.getUserName());
+        logger.warn("password: " + user.getPassword());
+        User foundUser = this.usersRepo.findByUsernameAndPassword(user.getUserName(), user.getPassword());
+        if (foundUser == null) {
+            throw new NotFoundException(String.format("user not found in database with username %s and password %s", user.getName(), user.getPassword()));
+        }
+        return ResponseEntity.ok().body(foundUser);
     }
 
 

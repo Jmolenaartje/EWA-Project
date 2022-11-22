@@ -39,4 +39,15 @@ export default class UserRepository {
         });
         return await response.json();
     }
+
+    async loginUser(userName, password) {
+        const response = await fetch('http://localhost:8089/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({userName, password}),
+        });
+        return await response.json();
+    }
 }

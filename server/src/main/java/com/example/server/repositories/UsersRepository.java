@@ -68,4 +68,16 @@ public class UsersRepository implements EntityRepository<User>{
 
         return query.getResultList();
     }
+
+    /*
+    Find user by username and password
+     */
+    public User findByUsernameAndPassword(String username, String password) {
+        TypedQuery<User> query =
+                this.entityManager.createQuery(
+                        "select u from User u where u.userName = :username and u.password = :password", User.class);
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        return query.getSingleResult();
+    }
 }

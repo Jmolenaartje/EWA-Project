@@ -25,9 +25,10 @@
                   <input
                     type="email"
                     class="form-control"
-                    id="exampleInputEmail1"
+                    id="username"
                     aria-describedby="emailHelp"
                     placeholder="Enter email/user name"
+                    v-model="username"
                   />
                   <label for="exampleInputEmail1">Password</label>
                   <input
@@ -35,16 +36,15 @@
                     class="form-control"
                     id="password"
                     placeholder="password"
+                    v-model="password"
                   />
                
                 </div>
               </div>
               <div class="d-flex flex-column">
-                <router-link to="/">
-                  <div class="btn btn-primary">
-                    Log in<span class="fas fa-chevron-right ms-1"></span>
-                  </div>
-                </router-link>
+                <button class="btn btn-primary" @click="login">
+                  Log in
+                </button>
                 <router-link to="/registerPage">
                   <div class="btn btn-primary mt-1">
                     Register<span class="fas fa-chevron-right ms-1"></span>
@@ -61,7 +61,34 @@
 </template>
 
 <script>
-export default {};
+import UserRepository from "@/repository/userRepository";
+export default {
+  name: "SignIn",
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+
+  created() {
+    this.repository = new UserRepository();
+  },
+
+  methods: {
+    login() {
+      // log the username and password
+      console.log(this.username);
+      console.log(this.password);
+
+      // log in
+      this.repository.loginUser(this.username, this.password);
+
+    },
+  },
+
+  }
+
 </script>
 
 <style></style>
