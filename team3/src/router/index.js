@@ -25,6 +25,7 @@ import changeBio from "@/views/editProfile/changeBio";
 import userNotes from "@/views/notes/userNotes";
 import createNote from "@/views/notes/createNote";
 import updateNote from "@/views/notes/updateNote";
+import plannerAgenda from "@/views/plannerAgenda";
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -53,6 +54,7 @@ const routes = [
     { path: "/changeEmail", component: changeEmail},
     { path: "/changePassword", component: changePassword},
     { path: "/changeBio", component: changeBio},
+    { path: "/agenda", component: plannerAgenda},
     { path: "/notes", component: userNotes, children: [
             { path: ':id', component: userNotes},
         ]},
