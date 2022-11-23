@@ -29,6 +29,7 @@ import updateNote from "@/views/notes/updateNote";
 import ErrorPage from "@/components/ErrorPage";
 
 import plannerAgenda from "@/views/plannerAgenda";
+import adminPlanAgenda from "@/views/Admin/adminPlanAgenda";
 
 const routes = [
     { path: "/home", component: Welcome },
@@ -56,6 +57,7 @@ const routes = [
         { path: "game-5", component: gameFiveSub},
         { path: "game-6", component: gameSixSub},
     ]},
+    { path: "/planEvent", component: adminPlanAgenda},
     { path: "/changeEmail", component: changeEmail},
     { path: "/changePassword", component: changePassword},
     { path: "/changeBio", component: changeBio},

@@ -8,49 +8,34 @@
         <div class="row">
           <div class="col-lg-auto">Geplanden evenmeten</div>
           <div class="col-lg-auto">
-            <select>
-              <option>game 1</option>
-              <option>game 2</option>
+            <select v-model="this.gameLevel">
+              <option disabled value="">Please select one</option>
+              <option>Game-1</option>
+              <option>Game-2</option>
+              <option>Game-3</option>
+              <option>Game-4</option>
+              <option>Game-5</option>
+              <option>Game-6</option>
+              <option>All</option>
             </select>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-sm" >&lt;</div>
+          <div class="col-sm">&lt;</div>
           <div class="col-sm" >1/3</div>
           <div class="col-sm">&gt; </div>
         </div>
 
           <hr>
-          <div class="agenda-item">
-            <div class="agenda-item-body">
-            <div class="row test">Woensdag 21 Nov</div>
-            <div class="row testtt">Title</div>
-            <div class="row testt">locatie</div>
-            </div>
-            <hr>
-          </div>
-
-          <div class="agenda-item">
-            <div class="agenda-item-body">
-              <div class="row test">Woensdag 21 Nov</div>
-              <div class="row testtt">Title</div>
-              <div class="row testt">locatie</div>
-            </div>
-            <hr>
-          </div>
-
           <div v-for="(agendaItem) in this.agendaItems" :key="agendaItem.id" class="agenda-item">
-            <div class="agenda-item-body">
-              <div class="row test">{{new Date(agendaItem.startDate)}}</div>
+            <div class="agenda-item-body" v-if="agendaItem.gameLevel === this.gameLevel || this.gameLevel === '' || this.gameLevel === 'All'">
+              <div class="row test">{{new Date(agendaItem.startDate).toLocaleTimeString("nl-NL", this.options)}}</div>
               <div class="row testtt">{{agendaItem.title}}</div>
               <div class="row testt">{{agendaItem.location}}</div>
             </div>
-            <hr>
+            <hr v-if="agendaItem.gameLevel === this.gameLevel || this.gameLevel === '' || this.gameLevel === 'All'">
           </div>
-
-
-
       </div>
       </div>
 
@@ -69,6 +54,13 @@ export default {
     return {
       agendaItems: [],
       repository: new AgendaItemRepository(),
+      options: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit',
+        minute: '2-digit', hour12: false},
+      gameLevel: "",
+      showAgendaItems: [],
+      // pageCount: 0,
+      // gameCount: 2,
+      // currentPage: 1,
     }
   },
 
@@ -76,14 +68,31 @@ export default {
     setTimeout(() => {
       this.getAgendaItems();
     }, 25);
-    console.log(this.agendaItems)
+
   },
 
   methods: {
     async getAgendaItems() {
       this.agendaItems = await this.repository.getAgendaItems();
-      console.log(this.agendaItems)
+      // this.showAgendaItems = [this.agendaItems[0], this.agendaItems[1], this.agendaItems[2]]
     },
+
+    // switchGame() {
+    //   this.currentPage = 1;
+    //   this.gameCount = 2;
+    //   this.sortOnGame()
+    //   this.showAgendaItems = [this.showAgendaItems[0], this.showAgendaItems[1], this.showAgendaItems[2]]
+    // },
+
+    // sortOnGame() {
+    //   this.showAgendaItems = [];
+    //   for (let i = 0; i < this.agendaItems.length; i++) {
+    //     let current = this.agendaItems[i];
+    //     if (current.gameLevel === this.gameLevel) {
+    //       this.showAgendaItems[this.showAgendaItems.length] = current;
+    //     }
+    //   }
+    // },
   },
 }
 </script>
