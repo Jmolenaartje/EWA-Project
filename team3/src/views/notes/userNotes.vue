@@ -31,7 +31,7 @@
       <!-- Create new note button -->
       <div class="row">
         <div class="col-12">
-         <button class="btn btn-primary"> <router-link to="/createNote/1">Create a new note</router-link></button>
+         <button id="jelmerbutton" class="btn text-light"> <router-link to="/createNote/1">Create a new note</router-link></button>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@ export default {
     // TODO fix this
     setTimeout(() => {
       this.getNotes(id);
-    }, 25);
+    }, 100);
   },
 
   methods: {
@@ -220,7 +220,7 @@ ul li:nth-child(3n) a{
 }
 
 .btn-primary {
-  color: #fff;
+  color: #fff !important;
   background-color: #007bff;
   border-color: #007bff;
 }
@@ -247,6 +247,10 @@ ul li:nth-child(3n) a{
   /* margin so its not to close to delete */
   margin-left: 3em;
 
+}
+
+#jelmerbutton {
+  color: white;
 }
 
 </style>

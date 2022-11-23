@@ -9,6 +9,11 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
+
+              <p class="col-12">
+                <button id="update" class="btn btn-primary" @click="this.delete()" >update</button>
+              </p>
+
             <div class="row">
               <div class="col-12 col-md-4">
                 <img
@@ -25,10 +30,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                    <p>
-                      <i class="fas fa-map-marker-alt"></i>
-                      <input v-model="selectedUserEmail"/>
-                    </p>
+
                   </div>
                 </div>
                 <div class="row">
@@ -57,6 +59,7 @@
                     <button class="btn btn-primary" @click="this.delete()" >delete</button>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -140,6 +143,9 @@ export default {
 .avatar {
   width: 100%;
   border-radius: 50%;
+}
+#update{
+  float: right;
 }
 
 .card {
