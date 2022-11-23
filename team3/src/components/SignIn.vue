@@ -78,17 +78,16 @@ export default {
 
   methods: {
     login() {
-      console.log("isisisisiis");
-      // log the username and password
-      console.log(this.username);
-      console.log(this.password);
-
       // log in
       this.repository.loginUser(this.username, this.password).then((response) => {
-        // log the response
-        console.log(response);
-        let admin = response['admin'];
-        if (admin === !undefined) {
+        // if response status 500, then user does not exist
+        if (response.status === 500) {
+          alert("User does not exist");
+        }
+        else {
+          // log the response
+          console.log(response);
+          let admin = response['admin'];
           let id = response['id'];
           let userName = response['userName'];
           let name = response['name'];
@@ -99,14 +98,13 @@ export default {
           sessionStorage.setItem("userName", userName);
           sessionStorage.setItem("name", name);
           sessionStorage.setItem("email", email);
-        }
-        setTimeout(() => {
 
-          location.reload();
-        }, 100);
-        if (admin === !undefined) {
+          // redirect to /
           this.$router.push("/");
         }
+      }).catch((error) => {
+        console.log(error);
+        console.log("Wrong username or password");
       });
 
     },
