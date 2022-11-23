@@ -21,7 +21,7 @@
               <div class="col-12 col-md-8">
                 <div class="row">
                   <div class="col-12">
-                    <h2>John Doe</h2>
+                    <h2>{{name}}</h2>
                   </div>
                 </div>
                 <div class="row">
@@ -36,8 +36,8 @@
                   <div class="col-12">
                     <p>
                       <i class="fas fa-envelope"></i>
-                      <a href="mailto:email@gmail.com">
-                        email@gmail.com
+                      <a>
+                        {{email}}
                       </a>
                     </p>
                   </div>
@@ -45,9 +45,9 @@
                 <div class="row">
                   <div class="col-12">
                     <p>
-                      <i class="fas fa-phone"></i>
-                      <a href="tel:0612345678">
-                        0612345678
+                      <a>username </a>
+                      <a >
+                      {{userName}}
                       </a>
                     </p>
                   </div>
@@ -133,8 +133,18 @@
 
 <script>
 export default {
-  name: "profilePage"
+  name: "profilePage",
+  data() {
+    return {
+      name: sessionStorage.getItem("name"),
+      email: sessionStorage.getItem("email"),
+      userName :sessionStorage.getItem('userName'),
+
+    };
+  },
 }
+
+
 </script>
 
 <style scoped>

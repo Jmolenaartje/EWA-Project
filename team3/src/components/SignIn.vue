@@ -23,22 +23,22 @@
                 <div class="form-group mb-3">
                   <label for="exampleInputEmail1">User Name</label>
                   <input
-                    type="email"
-                    class="form-control"
-                    id="username"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email/user name"
-                    v-model="username"
+                      type="email"
+                      class="form-control"
+                      id="username"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email/user name"
+                      v-model="username"
                   />
                   <label for="exampleInputEmail1">Password</label>
                   <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="password"
-                    v-model="password"
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="password"
+                      v-model="password"
                   />
-               
+
                 </div>
               </div>
               <div class="d-flex flex-column">
@@ -52,7 +52,7 @@
                 </router-link>
               </div>
             </div>
-               
+
           </div>
         </div>
       </div>
@@ -62,6 +62,7 @@
 
 <script>
 import UserRepository from "@/repository/userRepository";
+
 export default {
   name: "SignIn",
   data() {
@@ -77,6 +78,7 @@ export default {
 
   methods: {
     login() {
+      console.log("isisisisiis");
       // log the username and password
       console.log(this.username);
       console.log(this.password);
@@ -85,22 +87,32 @@ export default {
       this.repository.loginUser(this.username, this.password).then((response) => {
         // log the response
         console.log(response);
-
-        // admin
         let admin = response['admin'];
-        let id = response['id'];
-        let userName = response['userName'];
+        if (admin === !undefined) {
+          let id = response['id'];
+          let userName = response['userName'];
+          let name = response['name'];
+          let email = response['email'];
 
-        console.log(admin);
-        console.log(id);
-        console.log(userName);
+          sessionStorage.setItem("admin", admin);
+          sessionStorage.setItem("id", id);
+          sessionStorage.setItem("userName", userName);
+          sessionStorage.setItem("name", name);
+          sessionStorage.setItem("email", email);
+        }
+        setTimeout(() => {
 
+          location.reload();
+        }, 100);
+        if (admin === !undefined) {
+          this.$router.push("/");
+        }
       });
 
     },
   },
 
-  }
+}
 
 </script>
 
