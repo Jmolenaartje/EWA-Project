@@ -99,7 +99,10 @@ export default {
           sessionStorage.setItem("name", name);
           sessionStorage.setItem("email", email);
 
-          // redirect to /
+          // redirect to / with 100 ms delay
+          setTimeout(() => {
+            window.refresh();
+          }, 100);
           this.$router.push("/");
         }
       }).catch((error) => {
