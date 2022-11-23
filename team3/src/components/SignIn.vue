@@ -82,7 +82,7 @@ export default {
       this.repository.loginUser(this.username, this.password).then((response) => {
         // if response status 500, then user does not exist
         if (response.status === 500) {
-          alert("User does not exist");
+          alert("Username or password is incorrect");
         }
         else {
           // log the response
@@ -101,7 +101,7 @@ export default {
 
           // redirect to / with 100 ms delay
           setTimeout(() => {
-            window.refresh();
+            location.reload();
           }, 100);
           this.$router.push("/");
         }
