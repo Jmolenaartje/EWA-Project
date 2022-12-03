@@ -1,5 +1,8 @@
 package com.example.server.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,16 +11,29 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    //todo not like this but a many questions to one quiz relationship
-    private int quizId;
+    @ManyToOne
+    @JsonManagedReference
+    private Quiz quiz;
 
+    public boolean associateQuiz(Quiz quiz) {
+        if (quiz != null && this.getQuiz() == null) {
+            quiz.associateQuestion(this);
+            this.setQuiz(quiz);
+            return true;
+        }
+        return false;
+    }
+
+    @JsonProperty("question")
     private String question;
+
+    @JsonProperty("answer")
     private String answer;
 
 
-    public Question(int id, int quizId, String question, String answer) {
+    public Question(int id, Quiz quiz, String question, String answer) {
         this(id);
-        this.quizId = quizId;
+        this.quiz = quiz;
         this.question = question;
         this.answer = answer;
     }
@@ -38,12 +54,12 @@ public class Question {
         this.id = id;
     }
 
-    public int getQuizId() {
-        return quizId;
+    public Quiz getQuiz() {
+        return quiz;
     }
 
-    public void setQuizId(int quizId) {
-        this.quizId = quizId;
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 
     public String getQuestion() {

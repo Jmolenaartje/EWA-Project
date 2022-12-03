@@ -1,6 +1,11 @@
 package com.example.server.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Quiz {
@@ -9,10 +14,22 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    //todo have it so there are many questions connected to one quiz
-
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("description")
     private String description;
+
+    @OneToMany(mappedBy = "quiz")
+    @JsonBackReference
+    private Set<Question> questions = new HashSet<>();
+
+    public boolean associateQuestion(Question question) {
+        if (question != null && question.getQuiz() == null) {
+            return this.getQuestions().add(question) && question.associateQuiz(this);
+        }
+        return false;
+    }
 
     public Quiz(int id, String name, String description) {
         this(id);
@@ -49,5 +66,13 @@ public class Quiz {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
     }
 }
